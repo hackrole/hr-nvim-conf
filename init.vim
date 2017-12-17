@@ -37,7 +37,9 @@ if dein#load_state(g:hk_dein_plugin_path)
                 \})
 
     call dein#add('Shougo/unite.vim')
-    call dein#add("Shougo/denite.vim")
+    call dein#add("basyura/unite-firefox-bookmarks")
+    call dein#add("liquidz/unite-bookmark-file")
+    call dein#add("Shougo/denite.nvim")
 
     " main tools
     call dein#add("scrooloose/nerdtree")
@@ -53,9 +55,10 @@ if dein#load_state(g:hk_dein_plugin_path)
     call dein#add("flazz/vim-colorschemes")
     call dein#add("dhruvasagar/vim-dotoo")
     call dein#add("jceb/vim-orgmode")
+    call dein#add("Shougo/vimfiler.vim")
 
     " vim unittest
-    call dein#add("hlmesuke/vim-unittest")
+    call dein#add("h1mesuke/vim-unittest")
     call dein#add("kana/vim-vspec")
 
     " misc
@@ -69,7 +72,7 @@ if dein#load_state(g:hk_dein_plugin_path)
     call dein#add("bling/vim-airline")
 
     " lang
-    call dein#add("neomake/neimake")
+    call dein#add("neomake/neomake")
     call dein#add("c-brenn/phoenix.vim")
     call dein#add("tpope/vim-projectionist")
     call dein#add("ludovicchabant/vim-gutentags")
@@ -90,8 +93,15 @@ if dein#load_state(g:hk_dein_plugin_path)
     call dein#end()
     call dein#save_state()
 endif
+" auto install
+if dein#check_install()
+    call dein#install()
+endif
 " 1}}}
 
 
-" colorscheme tabula
-colorscheme grovbox
+colorscheme tabula
+ colorscheme gruvbox
+" colorscheme desert
+
+let g:unite_bookmark_file=expand("~/.config/nvim/bookmark/default")
