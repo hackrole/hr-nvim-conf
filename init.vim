@@ -1,12 +1,4 @@
 "------------------------------------------------------------------
-" File: nvim_init.vim
-" Author: hackrole
-" Email: daipeng123456@gmail.com
-" Create At: 2017-10-26
-" Description: neovim配置文件
-"------------------------------------------------------------------
-
-"------------------------------------------------------------------
 " [dein.vim config] {{{1
 "------------------------------------------------------------------
 set nocompatible
@@ -26,15 +18,15 @@ execute "set runtimepath+=" . g:hk_dein_path
 if dein#load_state(g:hk_dein_plugin_path)
     call dein#begin(g:hk_dein_plugin_path)
     call dein#add('Shougo/dein.vim')
-    call dein#add('Shougo/vimproc.vim', {
-                \ 'build': {
-                \   'windows': 'tools\\update-dll-mingw',
-                \   'cygwin': 'make -f make_cygwin.mak',
-                \   'mac': 'make -f make_mac.mak',
-                \   'linux': 'make',
-                \   'unix': 'gmake',
-                \   },
-                \})
+    "call dein#add('Shougo/vimproc.vim', {
+    "            \ 'build': {
+    "            \   'windows': 'tools\\update-dll-mingw',
+    "            \   'cygwin': 'make -f make_cygwin.mak',
+    "            \   'mac': 'make -f make_mac.mak',
+    "            \   'linux': 'make',
+    "            \   'unix': 'gmake',
+    "            \   },
+    "            \})
 
     call dein#add('Shougo/unite.vim')
     call dein#add("basyura/unite-firefox-bookmarks")
@@ -98,10 +90,3 @@ if dein#check_install()
     call dein#install()
 endif
 " 1}}}
-
-
-colorscheme tabula
- colorscheme gruvbox
-" colorscheme desert
-
-let g:unite_bookmark_file=expand("~/.config/nvim/bookmark/default")
