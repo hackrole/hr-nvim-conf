@@ -31,6 +31,7 @@ if dein#load_state(g:hk_dein_plugin_path)
     call dein#add('Shougo/unite.vim')
     call dein#add("basyura/unite-firefox-bookmarks")
     call dein#add("liquidz/unite-bookmark-file")
+    call dein#add("Shougo/neomru.vim")
     call dein#add("Shougo/denite.nvim")
 
     " main tools
@@ -80,7 +81,6 @@ if dein#load_state(g:hk_dein_plugin_path)
     call dein#add("dgryski/vim-godef")
     call dein#add("Blackrush/vim-gocode")
 
-
     " dein config finish
     call dein#end()
     call dein#save_state()
@@ -89,4 +89,15 @@ endif
 if dein#check_install()
     call dein#install()
 endif
-" 1}}}
+
+" source my config
+let $hr_config_dir = $HOME . "/.config/nvim/config"
+source $hr_config_dir/hr_global_settings.vim
+source $hr_config_dir/hr_keymap.vim
+source $hr_config_dir/hr_command.vim
+source $hr_config_dir/plugin.vim
+
+" add python3 features
+let g:python2_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
+"1}}}
