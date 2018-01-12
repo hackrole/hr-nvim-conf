@@ -1,0 +1,81 @@
+snippet meta "note meta header for tags,title,summary,date" !b
+author: hackrole
+email: daipeng123456@gmail.com
+date: `date +"%Y-%m-%d"`
+tags: ${1}
+title: ${2}
+summary: ${3}
+$0
+endsnippet
+
+
+# TODO. add the rst tile and title below.
+snippet mt "note meta header for tags,date" !b
+author: hackrole
+email: daipeng123456@gmail.com
+date: `date +"%Y-%m-%d"`
+tags: ${1}
+$0
+endsnippet
+
+# pelican blog meta.
+snippet pn.mt "note meta header for tags,date" !b
+:author: hackrole
+:email: daipeng123456@gmail.com
+:date: `date +"%Y-%m-%d %H:%M:%S"`
+:status: draft
+:tags: ${1}
+$0
+endsnippet
+
+snippet td "mark this is TODO" !
+**TODO**
+endsnippet
+
+snippet pn.pb "make this published" !b
+:status: published
+endsnippet
+
+snippet pn.df "make this draft" !b
+:status: draft
+endsnippet
+
+snippet pn.cb "code-block direct" !b
+.. code-block:: $1
+
+	$2
+endsnippet
+
+snippet pn.cbli "code-block direct with linenos inline" !b
+.. code-block:: $1
+	linenos: inline
+
+	$2
+endsnippet
+
+snippet pn.rb "code-block ruby" !b
+.. code-block:: ruby
+endsnippet
+
+snippet pn.sr "make this tobe serial" !b
+:serials: $1
+:serials_index: $2
+endsnippet
+
+snippet tb.csv "make a csv table" !b
+.. csv-table:: $1
+	:header: $2
+	:class: ${3:table}
+	:name: ${4:csv-table}
+
+	$0
+endsnippet
+
+snippet tb.list "make a list table" !b
+.. list-table:: $1
+	:class: ${2:table}
+	:name: ${3:list-table}
+
+	$0
+endsnippet
+

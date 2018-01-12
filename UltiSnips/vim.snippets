@@ -1,0 +1,35 @@
+# config file header comment
+snippet fcmt "vim conf file comment" !b
+"------------------------------------------------------------------
+" File: `!v expand('%:t')`
+" Author: hackrole
+" Email: daipeng123456@gmail.com
+" Create At: `date +"%Y-%m-%d"`
+" Description: $1
+"------------------------------------------------------------------
+$0
+endsnippet
+
+# comment for section
+snippet scmt "vim section comment" !b
+"------------------------------------------------------------------
+" [${1}] {{{1
+"------------------------------------------------------------------
+$0
+" 1}}}
+
+endsnippet
+
+# function
+snippet func "vim function define" !b
+function! s:${1:name}(${2})
+$0
+endfunction
+endsnippet
+
+snippet if "if .. endif" !b
+if $1
+	$0
+endif
+endsnippet
+

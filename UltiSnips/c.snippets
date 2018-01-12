@@ -1,0 +1,52 @@
+snippet inc "include <..>" !b
+#include <$1>
+$0
+endsnippet
+
+snippet inc2 "include .." !b
+#include "$1"
+$0
+endsnippet
+
+snippet main "int main(..)" !b
+int main(int argc, char **argv){
+  $0
+}
+endsnippet
+
+snippet func "void func(){..}" !b
+${1:void} ${2:func}($3){
+  $0
+}
+endsnippet
+
+snippet if "if (){ ... }"
+if ($1){
+  $2
+}$0
+endsnippet
+
+snippet while "while () { ... }"
+while ($1){
+  $2
+}$0
+endsnippet
+
+# define
+snippet ifdef "#ifdef .. #endif" !b
+#ifdef $1
+$0
+#endif
+endsnippet
+
+snippet ifndef "#ifndef .. #endif" !b
+#ifndef $1
+$0
+#endif
+endsnippet
+
+snippet struct "struct define" !b
+struct $1 {
+$0
+}
+endsnippet

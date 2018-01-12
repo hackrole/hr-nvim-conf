@@ -1,0 +1,64 @@
+snippet fdh "#import <Foundation/Foundation.h" !b
+#import <Foundation/Foundation.h>
+$0
+endsnippet
+
+snippet imain "int main(){}" !b
+int main(){
+  $0
+  return 0;
+}
+endsnippet
+
+snippet icmain "int main(int argc, const char *argv[]){}" !b
+int main(int argc, const char *argv[]){
+  $0
+
+  return 0;
+}
+endsnippet
+
+snippet main "void main(){}" !b
+void main(){
+  $0
+}
+endsnippet
+
+snippet interface "@interface .. @end" !b
+@interface ${1:class}:${2:NSObject}
+
+$0
+
+@end
+endsnippet
+
+snippet implementation "@implementation .. @end" !b
+@implementation ${1:class}
+
+$0
+
+@end
+endsnippet
+
+snippet nslog "NSLOG(@..)" !
+NSLog(@"$1", $2);$0
+endsnippet
+
+snippet nss "nsstring" !
+@"$1";$0
+endsnippet
+
+snippet nss2 "NSString *str = @.." !
+NSString * ${1:str}$0
+endsnippet
+
+snippet autopool "NSAutoreleasePool init" !
+NSAutoreleasePool * ${1:pool} = [[NSAutoreleasePool alloc] init];
+$0
+[pool drain];
+endsnippet
+
+snippet objinit "object alloc and init" !
+${1:class} * ${2:obj} = [[$1 alloc] init];
+$0
+endsnippet

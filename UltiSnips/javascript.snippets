@@ -1,0 +1,58 @@
+# express view get/post/put/delete
+snippet exp.vget "express view get" !b
+app.get('${1}', function(req, res){
+	${0}
+});
+endsnippet
+
+snippet exp.vpost "express view post" !b
+app.post('${1}', function(req, res){
+	${0}
+});
+endsnippet
+
+snippet exp.vput "express view put" !b
+app.put('${1}', function(req, res){
+	${0}
+});
+endsnippet
+
+snippet exp.vdel "express view delete" !b
+app.delete('${1}', function(req, res){
+	${0}
+});
+endsnippet
+
+# comment
+snippet cmt "multi line comments" !b
+/*
+ * $1
+ */
+endsnippet
+
+snippet usest "use strict comment" !b
+'use strict';
+endsnippet
+
+# react-native
+snippet rn.rq "react native require" !b
+var React = require("react-native");
+var {
+	StyleSheet,
+	AppRegistry,
+	View,
+	Text,
+} = React;
+endsnippet
+
+snippet rn.crt "react-native create component class" !b
+var $1 = React.createClass({
+	render: function(){
+		$0
+	},
+});
+endsnippet
+
+snippet rn.reg "react-native register component" !b
+AppRegistry.registerComponent('$1', ${2:() => App});
+endsnippet

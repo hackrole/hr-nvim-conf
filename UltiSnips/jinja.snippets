@@ -1,0 +1,138 @@
+# variable
+snippet var "{{ | }}"
+{{ $1 }}$0
+endsnippet
+
+# controns
+snippet con "{% | %}"
+{% $1 %}%0
+endsnippet
+
+# django block
+snippet block "{% block %}..{% endblock %}"
+{% block $1 %}
+  $2
+{% endblock %}
+endsnippet
+
+
+
+# tornado controns with end
+snippet tcons "{% | %} {% end %}"
+{% %1 %}
+	$2
+{% end %}%0
+endsnippet
+
+
+# tornados template
+
+#block
+snippet tblock "{% block %}..{% end %}"
+{% block $1 %}
+	%2
+{% end %}
+endsnippet
+
+# escape
+snippet tescape "{% escape %} .. {% end %}"
+{% escape $1 %}$0
+endsnippet
+
+# comment
+snippet tcomment "{% comment %1 %}%0"
+{% comment %1 %}%0
+endsnippet
+
+# extends
+snippet extends "{% extends %1 %}"
+{% extends "$1" %}$0
+endsnippet
+
+# include
+snippet include "{% include %1 %}"
+{% include "$1" %}$0
+endsnippet
+
+# raw
+snippet traw "{% raw %1 %}"
+{% raw $1 %}$0
+endsnippet
+
+# import
+snippet timport "{% raw %1 %}"
+{% import $1 %}$0
+endsnippet
+
+# module
+snippet tmodule "{% raw %1 %}"
+{% module $1 %}$0
+endsnippet
+
+# set
+snippet tset "{% set %1 %}"
+{% set $1 %}$0
+endsnippet
+
+# apply
+snippet tapply "{% set %1 %}"
+{% apply $1 %}$0
+endsnippet
+
+# from
+snippet from "{% from %1 %}"
+{% from $1 import $2 %}$0
+endsnippet
+
+# tif
+snippet tif "{% if %}..{% end %}"
+{% if $1 %}
+	$2
+{% end %}$0
+endsnippet
+
+# telse
+snippet telse "{% else %}.."
+{% else %}
+	$0
+endsnippet
+
+# telif
+snippet telif "{% elif .. %}.."
+{% elif $1 %}
+	$0
+endsnippet
+
+# tfor
+snippet tfor "{% for .. %}.. {% end %}"
+{% for $1 in $2 %}
+	$3
+{% end %}$0
+endsnippet
+
+# twhile
+snippet twhile "{% while .. %}.. {% end %}"
+{% while $1 %}
+	$2
+{% end %}
+endsnippet
+
+# rails erb template
+snippet rb.var "rails erb var" !
+<%= $1 %>$0
+endsnippet
+
+# html vue js
+snippet vuejs "vue cdn js" !
+<script src="https://unpkg.com/vue" type="text/javascript"></script>
+endsnippet
+
+snippet vuert "vue js and router" !
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+endsnippet
+
+snippet vuex "vue and vuex" !
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vuex/router/dist/vuex.js"></script>
+endsnippet

@@ -1,0 +1,152 @@
+# comment
+snippet cmt "<!-- xml comment -->" !
+<!-- ${1} -->$0
+endsnippet
+
+# android id
+snippet adid "android:id= @+id/... " !
+android:id="@+id/${1}"$0
+endsnippet
+
+# android width
+snippet adlw "android layout width" !
+android:layout_width="${1:match_parent}"$0
+endsnippet
+
+# android height
+snippet adlh "android layout height" !
+android:layout_height="${1:match_parent}"$0
+endsnippet
+
+# android weight
+snippet adle "android layout weight" !
+android:layout_weight="${1:1}"$0
+endsnippet
+
+# android hint
+snippet adht "android hint"
+android:hint="${1}"$0
+endsnippet
+
+# android text
+snippet adtt "android text"
+android:text="${1}"$0
+endsnippet
+
+# android orientation horizontal
+snippet adorh "android orientation horizontal"
+android:orientation="horizontal"$0
+endsnippet
+
+# android orientation vertical
+snippet adorv "android orientation vertical"
+android:orientation="vertical"$0
+endsnippet
+
+snippet adCl "android Click"
+android:onClick="$1"$0
+endsnippet
+
+snippet xml "<?xml head?>"
+<?xml version="1.0" encoding="utf-8" ?>
+$0
+endsnippet
+
+snippet xml1 "<?xml head noutf8>"
+<?xml version="1.0" encoding="$1" ?>
+$0
+endsnippet
+
+snippet tsdoc "<!DOCTYPE tsung >"
+<!DOCTYPE tsung SYSTEM "/usr/local/app/tsung1.5.1/share/tsung/tsung-1.0.dtd" []>
+$0
+endsnippet
+
+snippet tsung "<tsung loglevel> </tsung>"
+<tsung loglevel="info">
+	$0
+</tsung>
+endsnippet
+
+snippet tsclient "tsung clients"
+<clients>
+	<client host="${1:localhost}" user_controller_vm="${2:true}" maxusers="${3:3000}">
+	</client>
+	$0
+</clients>
+endsnippet
+
+snippet tscli "tsung client"
+<client host="${1:localhost}" user_controller_vm="${2:true}" maxusers="${3:3000}">
+</client>
+$0
+endsnippet
+
+snippet tsserver "tsung servers"
+<servers>
+	<server host="${1:127.0.0.1}" port="${2:5222}" type="${3:tcp}"
+	</server>
+</servers>
+endsnippet
+
+snippet tsser "tsung server"
+<server host="${1:127.0.0.1}" port="${2:5222}" type="${3:tcp}"
+</server>
+endsnippet
+
+snippet load "tsung load"
+<load>
+	<arrivalphase phase="1" duration="60" unit="minute">
+		<users arrivalrate="50" unit="second"></users>
+	</arrivalphase>
+</load>
+endsnippet
+
+snippet tsopts "tsung options"
+<options>
+	<option type="${1:ts_jabber}" name="${2:name}" value="${3:value}"></option>
+</options>
+endsnippet
+
+snippet tsopt "tsung option"
+<option type="${1:ts_jabber}" name="${2:name}" value="${3:value}"></option>
+endsnippet
+
+
+# snippet for odoo(openerp8)
+
+snippet od.actwin "odoo ir.action.act_window" !
+<record id="${1}" model="ir.actions.act_window">
+	<field name="name">${2}</field>
+	<field name="res_model">${3}</field>
+</record>
+${0}
+endsnippet
+
+snippet od.view "odoo ir.ui.view" !
+<record id="${1}" model="ir.ui.view">
+	<field name="name">${2}</field>
+	<field name="model">${3}</field>
+	<field name="arch" type="xml">
+		${4}
+	</field>
+</record>
+${0}
+endsnippet
+
+snippet od.menu "odoo menuitem" !
+<menuitem id="${1}" sequence="${2}" name="${3}" parent="${4}"></menuitem>
+$0
+endsnippet
+
+snippet od.menut "odoo menuitem" !
+<menuitem id="${1}" sequence="${2}" name="${3}"></menuitem>
+$0
+endsnippet
+
+snippet od.data "odoo record data ususlly demo" !
+<record id="${1}" model="${2}">
+	${3}
+</record>
+${0}
+endsnippet

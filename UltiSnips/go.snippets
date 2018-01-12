@@ -1,0 +1,175 @@
+snippet minit "file init ..." !b
+package main
+
+import (
+	"fmt"
+)
+
+func main(){
+	$0
+}
+endsnippet
+
+snippet pkg "packge ..." !b
+package $0
+endsnippet
+
+snippet pkgm "package main" !b
+package main
+$0
+endsnippet
+
+snippet imp "import ..." !b
+import "$1"
+$0
+endsnippet
+
+snippet impm "import (...)" !b
+import (
+	$1
+)
+$0
+endsnippet
+
+snippet impp "import fmt" !b
+import "fmt"
+$0
+endsnippet
+
+snippet func "func name" !b
+func $1($2) {
+	$0
+}
+endsnippet
+
+snippet func2 "func name" !b
+func $1($2) $3{
+	$0
+}
+endsnippet
+
+snippet meth "func name" !b
+func ($1) $2($3) {
+	$0
+}
+endsnippet
+
+
+snippet meth2 "func name" !b
+func ($1) $2($3) $4{
+	$0
+}
+endsnippet
+
+snippet main "func main..." !b
+func main() {
+	$0
+}
+endsnippet
+
+snippet init "func init ..." !b
+func init() {
+	$0
+}
+endsnippet
+
+snippet derr "if err and defer" !b
+$1, err := $2
+if err != nil {
+	$3
+}
+defer $1.${4:Close}()
+$0
+endsnippet
+
+snippet derrf "if err panic and defer" !b
+$1, err := $2
+failOnError(err, "$3")
+defer $1.${4:Close}()
+endsnippet
+
+snippet fmt.pf "fmt.Printf(...)" !b
+fmt.Printf("$1")$0
+endsnippet
+
+snippet fmt.pfa "fmt.Printf(... ...)" !b
+fmt.Printf("$1", $2)$0
+endsnippet
+
+snippet fmt.pl "fmt.Println(...)" !b
+fmt.Println($1)$0
+endsnippet
+
+snippet struct "type .. struct {...}" !b
+type $1 struct {
+	$2
+}
+$0
+endsnippet
+
+snippet interface "type .. interface {...}" !b
+type $1 interface {
+	$2
+}
+$0
+endsnippet
+
+snippet httphandler "func *handler (rw http.ResponsWrite, r *http.Request){...}" !b
+func $1(rw http.ResponseWriter, r *http.Request) {
+	$0
+}
+endsnippet
+
+snippet for "for ..." !b
+for $1{
+	$0
+}
+endsnippet
+
+snippet if "if ... {}" !b
+if $1{
+$0
+}
+endsnippet
+
+snippet ec.view "echo frame view" !b
+func $1(c echo.Context) error{
+	$0
+}
+endsnippet
+
+snippet ec.init "echo frame init" !b
+package main
+
+import (
+	"net/http"
+	"github.com/labstack/echo"
+)
+
+func main(){
+	e := echo.New()
+	
+	// debug mode
+	e.Debug = true
+
+	$0
+
+	e.Logger.Fatal(e.Start(":1323"))
+}
+endsnippet
+
+snippet ec.model "ec mode struct ... " !b
+$1 $0 \`json:${1}`!p snip.rv = t[1].Lower()`\`
+endsnippet
+
+
+snippet js.tt "json test" !b
+$1, _ = json.Marshal($2)
+fmt.Println(string(${1}))$0
+endsnippet
+
+snippet iferr "if err {...}" !b
+if err != nil {
+	${1:panic(err)}
+}
+endsnippet

@@ -1,0 +1,145 @@
+# module
+snippet md "module header" !b
+-module(`!p snip.rv = snip.fn[:-4]`).
+$0
+endsnippet
+
+snippet comp "-compile(compile-options)" !b
+-compile(${1:export_all}).
+$0
+endsnippet
+
+snippet imp "-import(functions)" !b
+-import(${1:module}, [${2:functions}]).
+$0
+endsnippet
+
+snippet bhv "-behaviour(...)." !b
+-behaviour(${1:gen_server}).
+$0
+endsnippet
+
+snippet application "OTP application templates" !b
+-module(`!p snip.rv = snip.fn[:-4]`).
+-behaviour(application).
+
+%% OTP application exports
+-export([start/2, stop/1]).
+
+
+%% OTP application callbacks
+start(_Type, _StartArgs) ->
+	{ok, pid}.
+
+stop(_State) ->
+	ok.
+endsnippet
+
+snippet supervisor "OTP supervisor template" !b
+-module(`!p snip.rv = snip.fn[:-4]`).
+-behaviour(supervisor).
+
+%% API, the start_link is often used
+-export([start_link/0]).
+
+%% OTP supervisor exports
+-export([init/1]).
+
+-define(SERVER, ?MODULE).
+
+%% API callbacks
+start_link() ->
+	supervisor:start_link({local, ?SERVER}, ?MODULE, []).
+
+%% supervisor callbacks
+init([]) ->
+	{ok, {_RS, _Child}}.
+endsnippet
+
+# export
+snippet exp "export header" !b
+-export([$1]).
+$0
+endsnippet
+
+# gen_server template
+snippet gen_server "gen_server tempalte" !b
+-module(`!p snip.rv = snip.fn[:-4]`).
+-behaviour(supervisor).
+
+%% API, the start_link is often used
+-export([start_link/0]).
+
+%% OTP gen_server exports
+-export([
+		init/1,
+		handle_call/3,
+		handle_cast/2,
+		handle_info/2,
+		terminate/2,
+		code_change/3,
+		format_status/2
+		]).
+
+-define(SERVER, ?MODULE).
+
+%%% gen_server callbacks
+
+init(Args) ->
+	{ok, State}.
+
+handle_call(_Request, _From, _State) ->
+	{reply, Reply, NewState}.
+
+handle_cast(_Request, _State) ->
+	{noreply, NewState}.
+
+handle_info(_Info, _State) ->
+	{noreply, NewState}.
+
+terminate(_Reason, _State) ->
+	ok.
+
+code_change(_OldVsn, _State, _Extra) ->
+	{ok, NewState}.
+endsnippet
+
+# function
+snippet def "-define()." !b
+-define($1, $2).
+$0
+endsnippet
+
+# record
+snippet rec "-record()." !b
+-record($1, {$2}).
+$0
+endsnippet
+
+# file comment line
+snippet cmdfl "%%%--------- comment ---" !b
+%%%---------------------------------------------------------------------
+%%% $1
+%%%---------------------------------------------------------------------
+$0
+endsnippet
+
+snippet cmdl "%%------- comment ---" !b
+%%----------------------------------------------------------------------
+%% $1
+%%----------------------------------------------------------------------
+$0
+endsnippet
+
+# api comment line
+snippet cmdal "%%%============ comment ===" !b
+%%%=====================================================================
+%%% $1
+%%%=====================================================================
+$0
+endsnippet
+
+
+snippet wow
+${1:Text}`!p snip.rv = (75-2*len(t[1]))*' '+t[1].upper()`
+endsnippet

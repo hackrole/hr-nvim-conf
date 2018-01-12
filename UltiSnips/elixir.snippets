@@ -1,0 +1,103 @@
+# module<D-1>
+snippet defmodule "defmoudle ... end" !b
+defmodule ${1} do
+	$0
+end
+endsnippet
+
+snippet def "def ... end" !b
+def ${1:name} do
+	$0
+end
+endsnippet
+
+snippet case "case ... end"
+case ${1} do
+match: ${2}
+	${3}
+end
+endsnippet
+
+snippet defimp "defimp ... end" !
+defimpl ${1:protocol_name}, for: ${2:data_type} do
+	${0}
+end
+endsnippet
+
+snippet defmacro "defmacro ... end" !
+defmacro ${1:name} do
+	$0
+end
+endsnippet
+
+snippet defp "defp ... end" !
+defp ${1:name} do
+	$0
+end
+endsnippet
+
+snippet defprotocol "defprotocol ... end" !
+defprotocol ${1:name}, [${2:function}}]
+endsnippet
+
+
+snippet defrecord "defrecord ... end" !
+defrecord ${1:record_name}, ${2:functions}
+endsnippet
+
+snippet doc "@doc" !
+@doc """
+$0
+"""
+endsnippet
+
+snippet fn "fn() -> end" !
+fn(${1:args}) -> ${2} end$0
+endsnippet
+
+snippet loop "loop ... end" !
+loop ${1:values}, ${2:initial} do
+match: ${3}
+	${0}
+end
+endsnippet
+
+snippet mdoc "@moduledoc .. " !
+@moduledoc """
+$0
+"""
+endsnippet
+
+snippet rec "receive ... end" !
+receive do
+match: ${1}
+	${2}
+end
+endsnippet
+
+snippet req "require ..." !
+require ${1:module_name}, as: ${2:alias}
+endsnippet
+
+snippet test "test ... end" !
+test "${1:test_name}" do
+	$0
+end
+endsnippet
+
+snippet try "try ... end" !
+try do
+catch: ${1}
+	${2}
+end
+endsnippet
+
+snippet if "if ... end" !
+if ${1} do
+	$2
+end
+endsnippet
+
+snippet ifd "if .. do" !
+if ${1:condition}, do: ${2}
+endsnippet

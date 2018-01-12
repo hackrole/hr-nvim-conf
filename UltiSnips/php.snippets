@@ -1,0 +1,32 @@
+# action
+snippet action "yii controller action" !b
+/**
+  * ${2}
+  */
+public function action${1}(){
+	$0
+}
+endsnippet
+
+# renderp
+snippet renderp "yii renderPartial" !b
+$this->renderPartial('${1}', ${0});
+endsnippet
+
+# render
+snippet render "yii render" !b
+$this->render('${1}', ${0});
+endsnippet
+
+# rparam
+snippet rparam "yii get request param" !
+Yii::app()->request->getParam('${1}');
+endsnippet
+
+# emongo
+snippet emongo "yii EMongo" !b
+$criteria = new EMongoCriteria();
+$cursor = ${1}::model()->findAll($criteria);
+$rows = CommonFn::getRowsFromCursor($cursor);
+${0}
+endsnippet
