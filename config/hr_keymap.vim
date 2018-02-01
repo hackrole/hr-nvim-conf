@@ -147,26 +147,4 @@ cmap s!! w !sudo -u www-data tee > /dev/null %
 noremap <leader>ps Oimport pytest; pytest.set_trace()<Esc>
 noremap <leader>pS Oimport ipdb; ipdb.set_trace()<Esc>
 noremap <leader>pd O@pytest.mark.debug<Esc>
-
-" 快捷编辑配置文件 {{{1
-" =====================
-nn <leader>ev :tabnew $HOME/.vimrc<CR>
-nn <leader>em :tabnew $VIMFILES/conf/main.vim<CR>
-nn <leader>es :tabnew $VIMFILES/conf/set.vim<CR>
-nn <leader>ef :tabnew $VIMFILES/conf/function.vim<CR>
-nn <leader>ek :tabnew $VIMFILES/conf/keyboard.vim<CR>
-nn <leader>ep :tabnew $VIMFILES/conf/plugin.vim<CR>
-nn <leader>ec :tabnew $VIMFILES/conf/command.vim<CR>
-nn <leader>ea :tabnew $VIMFILES/conf/ab.vim<CR>
-nn <leader>eu :tabnew $VIMFILES/log/update.log<CR>
-
-nn <leader>Ev :split $HOME/.vimrc<CR>
-nn <leader>Em :split $VIMFILES/conf/main.vim<CR>
-nn <leader>Es :split $VIMFILES/conf/set.vim<CR>
-nn <leader>Ef :split $VIMFILES/conf/function.vim<CR>
-nn <leader>Ek :split $VIMFILES/conf/keyboard.vim<CR>
-nn <leader>Ep :split $VIMFILES/conf/plugin.vim<CR>
-nn <leader>Ec :split $VIMFILES/conf/command.vim<CR>
-nn <leader>Ea :split $VIMFILES/conf/ab.vim<CR>
-nn <leader>Eu :split $VIMFILES/log/update.log<CR>
 "1}} vim:fdm=marker:fdc=1
