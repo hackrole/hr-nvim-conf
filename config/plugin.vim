@@ -600,9 +600,53 @@ let g:alchemist_tag_disable = 1
 " 1}}}
 "
 "------------------------------------------------------------------
-" [scala ensime config] {{{1
+" [nyaovim-markdown-preview config] {{{1
 "------------------------------------------------------------------
-autocmd BufWritePost *.scala silent :EnTypeCheck
+" auto preview while edit markdown-file
+let g:markdown_preview_auto = 1
+" use default mapping
+let g:markdown_preview_no_default_mapping = 0
+" TODO it not work now. mapping for it
+"augroup marodown-preview-config
+"    autocmd!
+"    autocmd BufNewFile,BufRead *.md call s:hr_markdown_preview_config()
+"augroup END
+"function s:hr_markdown_preview_config()
+"    nnoremap <buffer><silent> <localleader>np :<C-u>StartMarkdownPreview<CR>
+"    nnoremap <buffer><silent> <localleader>ns :<C-u>StopMarkdownPreview<CR>
+"    nmap <buffer><silent> <localleader>nj <Plug>(markdown-preview-scroll-up)
+"    nmap <buffer><silent> <localleader>nk <Plug>(markdown-preview-scroll-down)
+"endfunction
 " 1}}}
 
+"------------------------------------------------------------------
+" [Unite/Denite config] {{{1
+"------------------------------------------------------------------
+call unite#custom#profile('default', 'context', {
+            \    'start_inesrt': 1,
+            \    'complete': 1,
+            \    'direction': 'botright',
+            \    'winheight': 10,
+            \})
+nnoremap <leader>uab :UniteBookmarkAdd<space>
+nnoremap <leader>ub :<C-u>Unite buffer<CR>
+nnoremap <leader>uB :<C-u>Unite bookmark<CR>
+nnoremap <leader>um :<C-u>Unite menu<CR>
+nnoremap <leader>uM :<C-u>Unite mapping<CR>
+nnoremap <leader>ur :<C-u>Unite file_mru<CR>
+if has('nvim')
+    nnoremap <leader>uf :Denite file_rec<CR>
+else
+    nnoremap <leader>uf :Unite file_rec<CR>
+endif
+augroup unitegroup
+    autocmd!
+    autocmd FileType unite call s:unite_my_settings()
+augroup END
+function! s:unite_my_settings()
+    nnoremap <silent><buffer><expr> F unite#do_action('vimfiler')
+    nnoremap <silent><buffer><expr> s unite#do_action('split')
+    inoremap <silent><buffer><expr> <C-s> unite#do_action('split')
+    nnoremap <silent><buffer><expr> cd unite#do_action('lcd')
+endfunction
 
