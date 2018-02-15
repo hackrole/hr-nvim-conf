@@ -148,3 +148,28 @@ noremap <leader>ps Oimport pytest; pytest.set_trace()<Esc>
 noremap <leader>pS Oimport ipdb; ipdb.set_trace()<Esc>
 noremap <leader>pd O@pytest.mark.debug<Esc>
 "1}} vim:fdm=marker:fdc=1
+
+"------------------------------------------------------------------
+" [cmdline keymap] {{{1
+"------------------------------------------------------------------
+" goto begin/end
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+" forward/backward char
+cnoremap <C-f> <Right>
+cnoremap <C-b> <left>
+" forward/backward char
+cnoremap <M-f> <S-Left>
+cnoremap <M-b> <S-right>
+" history next/previous
+cnoremap <C-j> <Up>
+cnoremap <C-k> <Down>
+" 1}}}
+
+
+"------------------------------------------------------------------
+" [quick config edit and source] {{{1
+"------------------------------------------------------------------
+noremap <leader>er :<C-u>source %<CR>
+noremap <silent> <leader>ei :<C-u>execute ':edit ' . hr_misc#get_nvim_config_fname("init.vim")<CR>
+" 1}}}
