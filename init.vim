@@ -9,17 +9,21 @@ if has('gui_macvim')
 endif
 
 " project dir
-let $HR_NVIM_DIR = fnamemodify(expand('<sfile>'), ':p:h')
+let g:hr_base_dir = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+let g:hr_dein_plugin_dir = g:hr_base_dir . "/dein/repos/github.com/Shougo/dein.vim"
+let g:hr_dein_install_dir = g:hr_base_dir . "/dein"
+let g:hr_config_dir = g:hr_base_dir . "/config/"
 
-" path to dein.vim
-let g:hk_dein_path = expand("~/.config/nvim/dein/repos/github.com/Shougo/dein.vim")
+" set runtimepath for autoload_funcs and dein plugin
+execute 'set runtimepath^=' . g:hr_base_dir
+execute "set runtimepath+=" . g:hr_dein_plugin_dir
+
 " path to plugins root path
 let g:hk_dein_plugin_path = expand("~/.config/nvim/dein")
 " add dein.vim to vimruntimepath
-execute "set runtimepath+=" . g:hk_dein_path
 
-if dein#load_state(g:hk_dein_plugin_path)
-    call dein#begin(g:hk_dein_plugin_path)
+if dein#load_state(g:hr_dein_install_dir)
+    call dein#begin(g:hr_dein_install_dir)
     call dein#add('Shougo/dein.vim')
     "call dein#add('Shougo/vimproc.vim', {
     "            \ 'build': {
@@ -122,11 +126,10 @@ if dein#check_install()
 endif
 
 " source my config
-let $hr_config_dir = $HOME . "/.config/nvim/config"
-source $hr_config_dir/hr_global_settings.vim
-source $hr_config_dir/hr_keymap.vim
-source $hr_config_dir/hr_command.vim
-source $hr_config_dir/plugin.vim
+call hr_misc#load_config("hr_global_settings.vim")
+call hr_misc#load_config("hr_keymap.vim")
+call hr_misc#load_config("hr_command.vim")
+call hr_misc#load_config("plugin.vim")
 
 " add python3 features
 let g:python2_host_prog = '/usr/local/bin/python'
