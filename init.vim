@@ -8,6 +8,9 @@ if has('gui_macvim')
     set macmeta
 endif
 
+" project dir
+let $HR_NVIM_DIR = fnamemodify(expand('<sfile>'), ':p:h')
+
 " path to dein.vim
 let g:hk_dein_path = expand("~/.config/nvim/dein/repos/github.com/Shougo/dein.vim")
 " path to plugins root path
@@ -33,6 +36,7 @@ if dein#load_state(g:hk_dein_plugin_path)
     call dein#add("liquidz/unite-bookmark-file")
     call dein#add("Shougo/neomru.vim")
     call dein#add("Shougo/denite.nvim")
+    call dein#add("Shougo/unite-session")
 
     " main tools
     call dein#add("scrooloose/nerdtree")
@@ -52,7 +56,9 @@ if dein#load_state(g:hk_dein_plugin_path)
 
     " vim unittest
     call dein#add("h1mesuke/vim-unittest")
+    call dein#add("thinca/vim-themis")
     call dein#add("kana/vim-vspec")
+    call dein#add("junegunn/vader.vim")
 
     " misc
     call dein#add("vim-scripts/genutils")
@@ -63,6 +69,11 @@ if dein#load_state(g:hk_dein_plugin_path)
     call dein#add("bolasblack/gtrans.vim")
     call dein#add("vim-scripts/TagmaTasks")
     call dein#add("bling/vim-airline")
+    call dein#add("equalsraf/neovim-gui-shim")
+    call dein#add("jonhiggs/MacDict.vim")
+    " nyaovim UI plugins
+    call dein#add("rhysd/nyaovim-markdown-preview")
+    call dein#add("rhysd/nyaovim-mini-browser")
 
     " lang
     call dein#add("neomake/neomake")
@@ -72,7 +83,8 @@ if dein#load_state(g:hk_dein_plugin_path)
     call dein#add("Rykka/riv.vim")
     call dein#add("mattn/emmet-vim")
     call dein#add("godlygeek/tabular")
-    call dein#add("plasticboy/vim-markdown")
+    "call dein#add("plasticboy/vim-markdown")
+    call dein#add("gabrielelana/vim-markdown")
     call dein#add("lepture/vim-jinja")
     call dein#add("Sirver/ultisnips")
     call dein#add("jiangmiao/auto-pairs")
