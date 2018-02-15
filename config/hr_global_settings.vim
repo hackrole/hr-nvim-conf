@@ -50,7 +50,10 @@ set scrolloff=5
 "    colorscheme tabula
 "endif
 " nvim settings
-colorscheme tabula
+"colorscheme tabula
+colorscheme gruvbox
+set background=dark
+
 " gui font size
 if has('macunix')
     set guifont=Consolas:h24
@@ -174,7 +177,7 @@ set nobackup
 " 忽略备份
 "set backupskip += "*.log, *.pyc, *.tmp"
 " 设定临时文件目录
-set directory=$VIMFILES/temp
+"set directory=$VIMFILES/temp
 " 1}}}
 
 " --------------------------------------------------
