@@ -44,12 +44,12 @@ let g:user_emmet_settings = {
 \}
 " only insert mode
 let g:user_emmet_mode='a'
-" only use for html/css
+" not only use for html/css
 let g:user_emmet_install_global = 1
 
 " key bind
 let g:user_emmet_leader_key  = '<C-y>'
-let g:user_emmet_expandabbr_key = '<M-;>'
+let g:user_emmet_expandabbr_key = '<C-;>'
 let g:user_emmet_next_key = '<C-y>n'
 let g:user_emmet_prev_key = '<C-y>p'
 
@@ -311,7 +311,7 @@ let g:ctrlp_custom_ignore = {
 "let g:UltiSnipsUsePythonVersion = 2
 let g:UltiSnipsEditSplit = "horizontal"
 " keys
-nn <M-F7> :UltiSnipsEdit<CR>
+nnoremap <leader><F7> :UltiSnipsEdit<CR>
 let g:UltiSnipsExpandTrigger = "<C-e>"
 let g:UltiSnipsListSnippets = "<f7>"
 let g:UltiSnipsJumpForwardTrigger = "<C-k>"
@@ -649,4 +649,33 @@ function! s:unite_my_settings()
     inoremap <silent><buffer><expr> <C-s> unite#do_action('split')
     nnoremap <silent><buffer><expr> cd unite#do_action('lcd')
 endfunction
-
+"1}}}
+"------------------------------------------------------------------
+" [deoplete config] {{{1
+"------------------------------------------------------------------
+" automatic start
+let g:deoplete#enable_at_startup = 1
+" the numbers of chars to start auto complete
+let g:deoplete#auto_complete_start_length = 2
+" the candidates limit
+let g:deoplete#max_list = 100
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = ['buffer']
+let g:deoplete#sources.python = ['jedi', 'ultisnips', 'buffer']
+let g:deoplete#sources.rust = ['racer', 'ultisnips', 'buffer']
+let g:deoplete#sources.haskell = ['ghc', 'ultisnips', 'buffer']
+let g:deoplete#sources.go = ['go', 'ultisnips', 'buffer']
+let g:deoplete#sources.elixir = ['elixir', 'ultisnips', 'buffer']
+let g:deoplete#sources.javascript = ['ternjs', 'ultisnips', 'buffer']
+let g:deoplete#sources.typescript = ['typescript', 'ultisnips', 'buffer']
+" toggle auto complete
+nnoremap <silent> <leader>Tdt :<C-u>call deoplete#toggle()<CR>
+inoremap <silent><expr> <C-g> deoplete#undo_completion()
+inoremap <silent><expr> <C-1> deoplete#mapping#manual_complete()
+" 1}}}
+"------------------------------------------------------------------
+" [deoplete-jedi for python] {{{1
+"------------------------------------------------------------------
+let g:python_host_prog = '/Users/daipeng/.virtualenvs/neovim-env/bin/python'
+let g:python3_host_prog = '/Users/daipeng/.virtualenvs/neovim-env/bin/python'
+" 1}}}
