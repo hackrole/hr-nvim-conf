@@ -5,6 +5,30 @@
 " Create At: 2017-12-28
 " Description: my keymap in nvim
 "------------------------------------------------------------------
+"
+"------------------------------------------------------------------
+" [use <space> as leaderkey. <;> as localleaderkey] {{{1
+"------------------------------------------------------------------
+let g:mapleader = " "
+let g:maplocalleader = ';'
+" release keymappings prefixes for <space> to work
+nnoremap <Space> <Nop>
+xnoremap <Space> <Nop>
+nnoremap , <Nop>
+xnoremap , <Nop>
+nnoremap ; <Nop>
+xnoremap ; <Nop>
+"nnoremap m <Nop>
+"xnoremap m <Nop>
+" 1}}}
+
+"------------------------------------------------------------------
+" [keymap for toggle somethings] {{{1
+"------------------------------------------------------------------
+nnoremap <leader>tr :set relativenumber!<CR>
+nnoremap <leader>tn :set number!<CR>
+nnoremap <leader>tw :set wrap!<CR>
+" 1}}}
 
 " --------------------------------------------------
 " [tab相关] {{{1
@@ -55,31 +79,29 @@ nnoremap <leader>sj <M-j>Mzt
 nnoremap <leader>sk <M-k>Mzt
 nnoremap <leader>sl <M-l>Mzt
 
+"------------------------------------------------------------------
+" [nvim terminal keymap] {{{1
+"------------------------------------------------------------------
+if exists(':tnoremap')
+    tnoremap <Esc> <C-\><C-n>
+    tnoremap <M-n> <C-\><C-n>:tabprevious<CR>
+    tnoremap <M-n> <C-\><C-n>:tabnext<CR>
+    tnoremap <M-h> <C-\><C-n><C-w>h
+    tnoremap <M-j> <C-\><C-n><C-w>j
+    tnoremap <M-k> <C-\><C-n><C-w>k
+    tnoremap <M-l> <C-\><C-n><C-w>l
+endif
 " 1}}}
 " --------------------------------------------------
 " [复制粘贴] {{{1
 " --------------------------------------------------
-
 vnoremap <M-y> "+y
 nnoremap <M-p> "+p
 inoremap <M-p> <Esc>"+pa
-
 " 命令行下粘贴
 cnoremap <M-p> <C-R>+
 "inoremap <script> <M-p> paste#paste_cmd['i']
 "vnoremap <script> <M-p> paste#paste_cmd['v']
-" 1}}}
-" -------------------------------------------------
-" [vim ConqueTerm快捷键]{{{1
-" -------------------------------------------------
-nn <leader>Bb :tabnew<CR>:ConqueTerm bash<CR>
-nn <leader>bb :botright 15split<CR>:ConqueTerm bash<CR>
-ino <leader>Bb <Esc>:tabnew<CR>:ConqueTerm bash<CR>
-ino <Leader>bb <Esc>:botright 15split<CR>:ConqueTerm bash<CR>
-nn <leader>Bp :tabnew<cr>:ConqueTerm ipython<CR>
-nn <leader>bp :botright 15split<CR>:ConqueTerm ipython<CR>
-ino <leader>Bp <Esc>:tabnew<cr>:ConqueTerm ipython<CR>
-ino <leader>bp <Esc>:botright 15split<CR>:ConqueTerm ipython<CR>
 " 1}}}
 " [快捷按鍵] {{{1
 " ===============

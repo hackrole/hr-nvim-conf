@@ -27,6 +27,8 @@ filetype indent on
 syntax on
 " 设置高亮关键字显示
 syntax enable
+" spell check enable
+set spell
 "1}}}
 
 " -----------------------------------------------------------
@@ -37,7 +39,8 @@ set pumheight=8
 " 右下角显示光标位置状态行
 set ruler
 " 显示行号
-set nu " number
+set number
+set relativenumber
 " 行间距
 set linespace=2
 " 行高亮
@@ -60,19 +63,17 @@ if has('macunix')
 else
     set guifont=consoles:h21
 endif
-
-if exists(':tnoremap')
-    tnoremap <Esc> <C-\><C-n>
-    tnoremap <M-n> <C-\><C-n>:tabprevious<CR>
-    tnoremap <M-n> <C-\><C-n>:tabnext<CR>
-    tnoremap <M-h> <C-\><C-n><C-w>h
-    tnoremap <M-j> <C-\><C-n><C-w>j
-    tnoremap <M-k> <C-\><C-n><C-w>k
-    tnoremap <M-l> <C-\><C-n><C-w>l
-endif
-
-" 设置命令行高度
+" 
+"------------------------------------------------------------------
+" [cmdline config {{{1
+"------------------------------------------------------------------
 set cmdheight=1
+" use full for cmdline complete
+set wildmode=full
+set wildmenu
+" ignore complete
+set wildignore+=.pyc,.swp
+" 1}}}
 "1}}}
 " 代码提示支持
 set ofu=syntaxcomplete#Complete
@@ -83,9 +84,14 @@ set backspace=indent,eol,start
 " expandtab
 set expandtab
 
+"------------------------------------------------------------------
+" [fold config] {{{1
+"------------------------------------------------------------------
+" TODO config this
 set nofoldenable
-set foldmethod=marker
-
+set foldmethod=indent
+set foldnestmax=3
+" 1}}}
 " 使用terminal去掉系统弹出框
 autocmd VimEnter * :call s:SetGuioptions_for_mac()
 function! s:SetGuioptions_for_mac()
@@ -100,7 +106,7 @@ set ignorecase smartcase
 " 查询自匹配
 "set incsearch
 " 搜索高亮
-set hls " highlightsearch
+set hlsearch
 "1}}}
 
 "------------------------------------------------------------
@@ -168,7 +174,7 @@ set termencoding=utf-8
 " [文件目录、历史记录] {{{1
 " --------------------------------------------------
 " 设置命令行历史记录
-set history=50
+set history=1000
 " 文件备份
 set nobackup
 "set writebackup
@@ -177,7 +183,7 @@ set nobackup
 " 忽略备份
 "set backupskip += "*.log, *.pyc, *.tmp"
 " 设定临时文件目录
-"set directory=$VIMFILES/temp
+set directory=~/.cache/nvim
 " 1}}}
 
 " --------------------------------------------------
