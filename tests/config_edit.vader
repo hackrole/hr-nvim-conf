@@ -1,0 +1,13 @@
+Execute (open with edit file):
+  edit ~/hr-conf/hr-nvim-conf/init.vim
+  AssertEqual 'vim', &filetype
+  AssertEqual 'init.vim', expand('%:t')
+
+Execute (get project dir ok):
+  AssertEqual '/Users/daipeng/hr-conf/hr-nvim-conf', Get_config_path("name")
+
+Do (open with shortcuts):
+  \<leader>ei
+Expect (the init.vim is opened):
+  AssertEqual 'vim', &filetype
+  AssertEqual 'init.vim', expand('%:t')
