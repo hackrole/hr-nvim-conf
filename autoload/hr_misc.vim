@@ -63,5 +63,14 @@ function! Settabwidth(t)
 endfunction
 "1}}}
 command! -nargs=1 Settab  call Settabwidth(<f-args>)
-" vim:fdm=marker:fdc=1
 
+function! hr_misc#get_nvim_project_dir() abort
+    let a:dir = $HR_NVIM_DIR
+    return a:dir
+endfunction
+
+function! hr_misc#get_nvim_config_fname(name) abort
+    let l:project_dir = hr_misc#get_nvim_project_dir()
+    let l:config_fname = l:project_dir . '/' .  a:name
+    return l:config_fname
+endfunction
