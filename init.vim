@@ -54,6 +54,25 @@ if dein#load_state(g:hk_dein_plugin_path)
     call dein#add("jceb/vim-orgmode")
     call dein#add("Shougo/vimfiler.vim")
 
+    """ deoplete completion
+    call dein#add("Shougo/deoplete.nvim", )
+    " python
+    call dein#add("zchee/deoplete-jedi")
+    " vimscript
+    call dein#add("Shougo/neco-vim")
+    " java
+    call dein#add("artur-shaik/vim-javacomplete2")
+    " haskell ghc
+    call dein#add("eagletmt/neco-ghc")
+    " golang
+    call dein#add("zchee/deoplete-go", {"build": 'make'})
+    " elixir
+    call dein#add("awetzel/elixir.nvim", {"build": './install.sh'})
+    " javascript
+    call dein#add("carlitux/deoplete-ternjs", {"build": "npm install -g tern"})
+    " typescript
+    call dein#add("mhartington/nvim-typescript")
+
     " vim unittest
     call dein#add("h1mesuke/vim-unittest")
     call dein#add("thinca/vim-themis")
