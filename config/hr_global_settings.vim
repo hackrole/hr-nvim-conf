@@ -28,7 +28,7 @@ syntax on
 " 设置高亮关键字显示
 syntax enable
 " spell check enable
-set spell
+"set spell
 "1}}}
 
 " -----------------------------------------------------------
