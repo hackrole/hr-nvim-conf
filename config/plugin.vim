@@ -159,12 +159,14 @@ let g:tagbar_type_elixir = {'ctagstype': 'elixir', 'kinds': ['f:functions:0:0', 
 " -------------------------------------------------
 "  [TagmaTask插件配置]{{{1
 " -------------------------------------------------
+" use <leader>ps as prefix
+let g:TagmaTasksPrefix = '<leader>pt'
 " not jump to the first task when startup
 let g:TagmaTasksJumpTask=0
 " the work as task
 let g:TagmaTaskTokens = ['FIEXME', 'TODO', 'NOTE', 'WARNING']
 " list all tasks under current directions
-nn <leader>tP :TagmaTasks **/*.py<CR>
+nn <leader>ptP :TagmaTasks **/*.py<CR>
 "1}}}
 " -------------------------------------------------
 "  [gtrans配置]{{{1
@@ -636,6 +638,7 @@ nnoremap <leader>uM :<C-u>Unite mapping<CR>
 nnoremap <leader>ur :<C-u>Unite file_mru<CR>
 if has('nvim')
     nnoremap <leader>uf :Denite file_rec<CR>
+    nnoremap <leader>uh :Denite hotfile<CR>
 else
     nnoremap <leader>uf :Unite file_rec<CR>
 endif
@@ -679,3 +682,16 @@ inoremap <silent><expr> <C-1> deoplete#mapping#manual_complete()
 let g:python_host_prog = '/Users/daipeng/.virtualenvs/neovim-env/bin/python'
 let g:python3_host_prog = '/Users/daipeng/.virtualenvs/neovim-env/bin/python'
 " 1}}}
+"------------------------------------------------------------------
+" [easy-align config] {{{1
+"------------------------------------------------------------------
+vmap <Enter> <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+" 1}}}
+"------------------------------------------------------------------
+" [vim-leader-guide config] {{{1
+"------------------------------------------------------------------
+"nnoremap <silent> <leader> :<C-u>LeaderGuide '<Space>'<CR>
+"vnoremap <silent> <leader> :<C-u>LeaderGuideVisual '<Space>'<CR>
+" 1}}}
+
