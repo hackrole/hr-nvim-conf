@@ -42,7 +42,6 @@ nnoremap <leader>tsj :set ft=javascript<CR>
 nnoremap <leader>tn :tabnew<CR>
 "inoremap <leader>tc <Esc>:tabclose<CR>
 "inoremap <leader>tn <Esc>:tabnew<CR>
-
 nnoremap <C-t>p :tabprevious<CR>
 nnoremap <C-t>n :tabnext<CR>
 inoremap <C-t>p <Esc>:tabprevious<CR>
@@ -82,8 +81,10 @@ nnoremap <leader>sl <M-l>Mzt
 "------------------------------------------------------------------
 " [nvim terminal keymap] {{{1
 "------------------------------------------------------------------
+noremap <leader>Ts :split<CR>:terminal tmux<CR>
 if exists(':tnoremap')
     tnoremap <Esc> <C-\><C-n>
+    tnoremap jk <C-\><C-n>
     tnoremap <M-n> <C-\><C-n>:tabprevious<CR>
     tnoremap <M-n> <C-\><C-n>:tabnext<CR>
     tnoremap <M-h> <C-\><C-n><C-w>h
@@ -103,6 +104,8 @@ endif
 " [快捷按鍵] {{{1
 " ===============
 inoremap <M-o> <ESC>o
+inoremap <leader>o <Esc>o
+inoremap <leader>O <Esc>O
 inoremap <M-S-o> <ESC>O
 inoremap <C-o> <CR><ESC>O
 inoremap <M-k> <ESC>O
