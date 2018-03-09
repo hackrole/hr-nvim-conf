@@ -76,7 +76,6 @@ endfunction
 
 " golang 环境配置
 autocmd BufNewFile,BufRead *.go :call s:GolangIDE()
-autocmd BufWritePre *.go :Fmt
 function! s:GolangIDE()
     setlocal filetype=go
     setlocal listchars=tab:\ \ ,trail:-

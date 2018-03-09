@@ -681,11 +681,19 @@ inoremap <silent><expr> <C-g> deoplete#undo_completion()
 inoremap <silent><expr> <C-1> deoplete#mapping#manual_complete()
 " 1}}}
 "------------------------------------------------------------------
-" [deoplete-jedi for python] {{{1
+" [deoplete-jedi/vim-jedi for python] {{{1
 "------------------------------------------------------------------
 let g:python_host_prog = '/Users/daipeng/.virtualenvs/neovim-env/bin/python'
 let g:python3_host_prog = '/Users/daipeng/.virtualenvs/neovim-env/bin/python'
+let g:jedi#completions_enabled = 0
 " 1}}}
+"------------------------------------------------------------------
+" [deoplete-go config] {{{1
+"------------------------------------------------------------------
+" the was need for deoplete-go completion, for performance
+let g:deoplete#sources#go#gocode_binary = expand("~/projects/mygo/bin/gocode")
+" 1}}}
+
 "------------------------------------------------------------------
 " [easy-align config] {{{1
 "------------------------------------------------------------------
@@ -697,5 +705,28 @@ nmap ga <Plug>(EasyAlign)
 "------------------------------------------------------------------
 "nnoremap <silent> <leader> :<C-u>LeaderGuide '<Space>'<CR>
 "vnoremap <silent> <leader> :<C-u>LeaderGuideVisual '<Space>'<CR>
+" 1}}}
+"------------------------------------------------------------------
+" [vim-go config] {{{1
+"------------------------------------------------------------------
+augroup hr_goconfig
+    autocmd!
+    autocmd FileType go :call s:hr_goconfig_keymap()
+augroup END
+function! s:hr_goconfig_keymap()
+    nnoremap <localleader>bt :<C-u>GoToggleBreakpoint<CR>
+    nnoremap <localleader>dd :<C-u>GoDebug<CR>
+    nnoremap <localleader>dt :<C-u>GoDebugTest<CR>
+    nnoremap <localleader>gp :<C-u>GoPath<CR>
+    " TODO use syntastic instead
+    nnoremap <localleader>gl :<C-u>GoLint<CR>
+    nnoremap <localleader>gd :<C-u>GoDoc<CR>
+    nnoremap <localleader>gb :<C-u>GoDocBrowser<CR>
+    nnoremap <localleader>gi :<C-u>GoImports<CR>
+    vnoremap <localleader>gp :<C-u>GoPlay<CR>
+    nnoremap <localleader>gr :<C-u>GoRun %<CR>
+    nnoremap <localleader>gt :<C-u>GoTest<CR>
+    nnoremap <localleader>gf :<C-u>GoInfo<CR>
+endfunction
 " 1}}}
 
