@@ -44,6 +44,9 @@ endfunction
 " typescript自动设置
 autocmd BufNewFile,BufRead *.ts :call s:TypescriptIDE()
 
+" help auto set number
+autocmd FileType help :setlocal relativenumber
+
 function! s:TypescriptIDE()
     setlocal autoindent
     setlocal smartindent
@@ -181,7 +184,6 @@ endfunction
 
 " markdown 编辑设置
 autocmd BufNewFile,BufRead *.md set ft=md
-
 
 " ruby 编辑环境配置
 autocmd BufNewFile,BufRead *.rb, :call s:RubyIDE()
