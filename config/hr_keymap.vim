@@ -51,10 +51,6 @@ nnoremap <leader>t1 :tabnext 1<CR>
 nnoremap <leader>t2 :tabnext 2<CR>
 nnoremap <leader>t3 :tabnext 3<CR>
 nnoremap <leader>t4 :tabnext 4<CR>
-inoremap <C-\>t1 :tabnext 1<CR>
-inoremap <C-\>t2 :tabnext 2<CR>
-inoremap <C-\>t3 :tabnext 3<CR>
-inoremap <C-\>t4 :tabnext 4<CR>
 " 1}}}
 " --------------------------------------------------
 " [窗口操作] {{{1
@@ -104,8 +100,8 @@ endif
 " [快捷按鍵] {{{1
 " ===============
 inoremap <M-o> <ESC>o
-inoremap <leader>o <Esc>o
-inoremap <leader>O <Esc>O
+"inoremap <leader>o <Esc>o
+"inoremap <leader>O <Esc>O
 inoremap <M-S-o> <ESC>O
 inoremap <C-o> <CR><ESC>O
 inoremap <M-k> <ESC>O
