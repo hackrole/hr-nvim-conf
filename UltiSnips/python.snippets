@@ -50,40 +50,44 @@ from __future__ import print_funciton
 $0
 endsnippet
 
-# def
-snippet def "def func with docstrings" !
+snippet def "def func without docstrings" !
 def ${1:func}(${2}):
-	"""
-    $3
-	"""
+	${0:return {}}
+endsnippet
+
+# def
+snippet defd "def func with docstrings" !
+def ${1:func}(${2}):
+	""" $3 """
 	${0:return {}}
 endsnippet
 
 # django url define tmp
-snippet dut "django urls" !
+snippet djg.url "django urls" !
 (r'^${1}$', ${2}),$0
 endsnippet
 
 snippet defs "def func(self,) with doc" !
 def ${1:func}(self${2}):
-	"""
-	"""
+	"""${3:doc here}"""
 	${0:pass}
 endsnippet
 
 snippet defc "def func(cls,) with doc" !
 @classmethod
 def ${1:func}(cls${2}):
-	"""
-	"""
+	"""${3:doc here}"""
 	${0:pass}
 endsnippet
 
 # class
-snippet cl "class with docstrings" !b
+snippet cl "class without docstrings" !b
 class ${1:MyC}(${2:object}):
-	"""
-	"""
+	${0:pass}
+endsnippet
+snippet cld "class with docstrings" !b
+class ${1:MyC}(${2:object}):
+	"""${3:doc here}"""
 	${0:pass}
 endsnippet
 
