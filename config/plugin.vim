@@ -193,55 +193,6 @@ let g:alternateNoDefaultAlternate = 1
 let g:alternateSearchPath = "abs:/usr/include/x86_64-linux-gnu,sfr:../lib,sfr:../include,srf../inc"
 "1}}}
 " --------------------------------------------------
-" [ lookupfile ] {{{1
-" --------------------------------------------------
-" TODO: note org
-"let g:LookupFile_TagExpr ='"./filenametags"'
-" 至少输入两个字符才开始查找
-let g:LookupFile_MinPatLength = 2
-" 不保存上次查找字符串
-let g:LookupFile_PreserveLastHistory = 0
-" 保存查找历史 LookupFile
-let g:LookupFile_PreservePatternhistory = 1
-" 取消默认<f5>按键绑定
-let g:LookupFile_DisableDefaultMap = 1
-" 回车打开第一个匹配项目
-let g:LookupFile_AlwaysAcceptFirst = 1
-" 不允许创建不存在的文件
-let g:LookupFile_AllowNewFiles = 0
-" 设置tag 文件的名字
-if filereadable("./filenametags")
-    let g:LookupFile_TagExpr = '"./filenametags"'
-endif
-
-" 设置查找忽略大小写
-function! LookupFile_IgnoreCaseFunc(pattern)
-
-    let _tags = &tags
-    try 
-        let $tags = eval(g:LooupFile_TagExpr)
-        let newpattern ='\c' . a:pattern
-        let tags = taglist(newpattern)
-    catch
-        echoh1 ErrorMsg | echo "Exception:" . v:exception | echoh1 NONE
-        return ""
-    finally
-        let &tags = _tags
-    endtry
-
-    " show the matches for what is typed so far.
-    let files = map(tags, 'v:val["filename"]')
-    return files
-endfunction
-"let g:LookupFile_LookupFunc = 'LookupFile_IgnoreCaseFunc'
-" 映射LookupFile 为,lk
-nmap <leader>lt :LUTags<cr>
-" 映射LuBufs为,ll
-nmap <leader>lb :LUBufs<cr>
-" 映射LUWalk为,lw
-nmap <leader>lw :LUWalk<cr>
-"1}}}
-" --------------------------------------------------
 " [ ctags配置] {{{1
 " --------------------------------------------------
 " TODO: project 相关
@@ -256,33 +207,6 @@ endif
 "set tags+=~/.vim/tagfiles/selenium.2.33.0.tags
 "1}}}
 " --------------------------------------------------
-" [ minibufExpl配置] {{{1
-" --------------------------------------------------
-" 终端下禁用
-if !has('gui_running')
-    let g:loaded_minibufexplorer = 1
-endif
-" minibuf splits
-let g:miniBufExplSplitBelow = 0
-" max lines
-let g:miniBufExplmaxSize = 3
-" num of buf to show minibufexpl, big to deny adn start by keymap
-let g:miniBufExplorerMoreThanOne = 35
-" enbale [hjkl] key
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-" tab to switch
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-" not reopen
-let g:miniBufExplCloseOnSelect = 1
-" for debug
-"let g:miniBufExplorerDebugLevel = 0/4/10
-" 按键绑定
-map <Leader>mt :TMiniBufExplorer<cr>
-map <leader>mm :MiniBufExplorer<cr>
-map <leader>mu :UMiniBufExplorer<cr>
-"1}}}
 "---------------------------------------------------
 "[ ctrlp配置 ] {{{1
 "---------------------------------------------------
@@ -307,8 +231,6 @@ let g:ctrlp_custom_ignore = {
             \ 'file': '\v\.(exe|so|dll|pyc)$',
             \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
             \ }
-
-
 "1}}}
 " --------------------------------------------------
 " [ UltiSnips配置 ] {{{1
@@ -319,7 +241,7 @@ let g:UltiSnipsEditSplit = "horizontal"
 " keys
 nnoremap <leader><F7> :UltiSnipsEdit<CR>
 let g:UltiSnipsExpandTrigger = "<C-e>"
-let g:UltiSnipsListSnippets = "<f7>"
+let g:UltiSnipsListSnippets = "<F7>"
 let g:UltiSnipsJumpForwardTrigger = "<C-k>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-j>"
 
@@ -328,74 +250,7 @@ augroup ultisnips_sub
 augroup END
 
 " 1}}}
-
 "-------------------------------------------------------------------------
-" [ neocomplcache 设置 ]{{{1
-"-------------------------------------------------------------------------
-" TODO: not finish yet
-"启动 neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-" 缓存dir
-let g:neocomplcache_temporary_dir = "~/.vim/temp/neocaches"
-" 补全弹出窗list-max
-let g:neocomplcache_max_list = 18
-" 补全不忽略大小写
-"let g:neocomplcache_enable_ignore_case = 0
-" smart case
-let g:neocomplcache_enable_smart_case = 1
-" 不自动弹出不全列表
-"let g:neocomplcache_disable_auto_complete = 1
-" 根据文件类型配置 字典文件
-let g:neocomplcache_dictionary_filetype_lists = {
-\   'default': '',
-\   'vishell': '',
-\   'css': '',
-\   'php': '',
-\   'python': $VIMFILES."/dict/python.dict",
-\}
-" 自定义source
-if !exists("g:neocomplcache_sources_list")
-    let g:neocomplcache_sources_list = {}
-endif
-let g:neocomplcache_sources_list.python = [
-\   "buffer_complete",
-\   "filename_complete",
-\   "dictionary_complete",
-\   "tags_complete",
-\]
-" fix the . crash error
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.python = ''
-let g:neocomplcache_omni_patterns.ruby = ''
-" 自动补全的最小输入控制
-let g:neocomplcache_auto_completion_start_length = 2
-" use smartcase
-let g:neocomplcache_enable_smart_case = 1
-" set the skip auto_completion time
-let g:neocomplcache_skip_auto_completion_time = 0.5
-" use camel case completion
-let g:neocomplcache_enable_camel_case_completion = 1
-" set minunum syntacx keyword length
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-" authocomplPop like behavior
-let g:neocomplcache_enable_auto_select = 0
-" when you input ho-a, neocomplecache will select candidate 'a'.
-let g:neocomplcache_enable_quick_match = 1
-" define keyword
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-" TODO:按键绑定
-ino <expr> <A-1> neocomplcache#start_manual_complete()
-ino <expr> <A-g> neocomplcache#close_popup()
-ino <expr> <C-g> neocomplcache#cancel_completion()
-"ino <expr> <C-z> neocomplcache#undo_completion()
-"1}}}
 " ------------------------------------------------------
 " [ autopair配置 ]{{{1
 " ------------------------------------------------------
@@ -542,12 +397,6 @@ if !exists("g:ycm_semantic_triggers")
 endif
 let g:ycm_semantic_triggers['typescript'] = ['.']
 " 1}}}
-
-" ----------------------------------------------------------
-"  [ evernote配置 ]{{{1
-" TODO: try and conf and 优化
-let g:evervim_devtoken='S=s240:U=1cd8982:E=146e15334f5:C=13f89a208f9:P=1cd:A=en-devtoken:V=2:H=a8cac25918a056c4e1b1243672ec7e76'
-"1}}}
 " -----------------------------------------------------------
 "  [android开发配置]{{{1
 " -----------------------------------------------------------
@@ -577,28 +426,22 @@ cnoreabbrev AG Ack!
 let g:dotoo#agenda#files = [expand('~/.vim/agendas/works.dotoo'), expand("~/.vim/agendas/home.dotoo"), expand("~/.vim/agendas/dotoo.dotoo")]
 let g:dotoo#capture#refile = expand('~/.vim/refile.dotoo')
 " 1}}}
-
-
 "------------------------------------------------------------------
 " [neomake config] {{{1
 "------------------------------------------------------------------
 "autocmd! BufWritePost * NeoMake
 " 1}}}
-
 "------------------------------------------------------------------
 " [vim-gutentags] {{{1
 "------------------------------------------------------------------
 let g:gutentags_cache_dir='~/.tags_cache'
 " 1}}}
-
 "------------------------------------------------------------------
 " [vimfiler] {{{1
 "------------------------------------------------------------------
 " use as default
 let g:vimfiler_as_default_explorer = 1
 " 1}}}
-
-
 "------------------------------------------------------------------
 " [Alchemist.vim] {{{1
 "------------------------------------------------------------------
@@ -609,7 +452,7 @@ let g:alchemist_tag_disable = 1
 " [nyaovim-markdown-preview config] {{{1
 "------------------------------------------------------------------
 " auto preview while edit markdown-file
-let g:markdown_preview_auto = 1
+let g:markdown_preview_auto = 0
 " use default mapping
 let g:markdown_preview_no_default_mapping = 0
 " TODO it not work now. mapping for it
@@ -709,6 +552,8 @@ nmap ga <Plug>(EasyAlign)
 "------------------------------------------------------------------
 " [vim-go config] {{{1
 "------------------------------------------------------------------
+let g:hr_gopath = expand("~/projects/mygo")
+silent! execute ':GoPath ' . g:hr_gopath
 augroup hr_goconfig
     autocmd!
     autocmd FileType go :call s:hr_goconfig_keymap()
