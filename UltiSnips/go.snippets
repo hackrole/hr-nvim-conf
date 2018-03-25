@@ -177,3 +177,93 @@ endsnippet
 snippet http.listen "log.fatal http.listen and server" !b
 log.Fatal(http.ListenAndServe("localhost:8000", nil))
 endsnippet
+
+# ginkgo test
+snippet gk.bg "gk test begin" !b
+var _ = Describe("$1", func(){
+	$0
+})
+endsnippet
+snippet gk.bfe "ginkgo beforeeach" !b
+BeforeEach(func(){
+$0
+})
+endsnippet
+snippet gk.ds "ginkgo Describe" !b
+Describe("$1", func(){
+$0
+})
+endsnippet
+snippet gk.cnt "ginkgo Context" !b
+Context("$1", func(){
+$0
+})
+endsnippet
+snippet gk.it "ginkgo  It" !b
+It("$1", func(){
+$0
+})
+endsnippet
+snippet gk.exp "ginkgo expect" !b
+Expect($1).To(Equal($2))$0
+endsnippet
+
+# goblin unit test
+snippet gb.initall "goblin init file" !b
+package $1
+
+import (
+	. "github.com/franela/goblin"
+	"testing"
+)
+
+func Test$2(t *testing.T){
+	g := Goblin(t)
+	$0
+}
+endsnippet
+snippet gb.init "goblin init" !b
+g := Goblin(t)
+endsnippet
+snippet gb.ds "goblin Describe" !b
+g.Describe("$1", func(){
+	$0
+})
+endsnippet
+snippet gb.it "goblin it" !b
+g.It("$1", func(){
+	$0
+})
+endsnippet
+snippet gb.ast "goblin assert" !b
+g.Assert($1).Equal($2)$0
+endsnippet
+snippet gb.bf "goblin before" !b
+g.Before(func(){
+	$0
+})
+endsnippet
+snippet gb.bfe "goblin beforeeach" !b
+g.BeforeEach(func(){
+	$0
+})
+endsnippet
+snippet gb.af "goblin after" !b
+g.After(func(){
+	$0
+})
+endsnippet
+snippet gb.afe "goblin aftereach" !b
+g.AfterEach(func(){
+	$0
+})
+endsnippet
+snippet gb.imp "goblin import" !b
+import (
+	. "github.com/franela/goblin"
+	"testing"
+)
+endsnippet
+snippet gb.pkg "goblin pkgname" !b
+. "github.com/franela/goblin"
+endsnippet
