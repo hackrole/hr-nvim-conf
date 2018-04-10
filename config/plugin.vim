@@ -85,7 +85,7 @@ let NERDChristmasTree=1
 " set nerdtree bookmark file path
 let NERDTreeBookmarksFile=expand('~')."/.vim/temp/nerdtree.bookmarks"
 " show bookmarks on startup
-let NERDTreeShowBookmarks=1
+let NERDTreeShowBookmarks=0
 " not show hidden file on startup
 let NERDTreeShowHidden=0
 " show line number on startup
@@ -318,7 +318,7 @@ let g:syntastic_check_on_wq = 1
 " use all checker at once
 let g:syntastic_aggregate_errors = 1
 " auto open error window while errors
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_always_populate_loc_list = 1
 " set sign symbol
 let g:syntastic_error_symbol = 'EE'
@@ -549,6 +549,8 @@ nmap ga <Plug>(EasyAlign)
 " [vim-go config] {{{1
 "------------------------------------------------------------------
 let g:hr_gopath = expand("~/projects/mygo")
+" XXX not working now
+"let g:go_template_file = "hello.go"
 silent! execute ':GoPath ' . g:hr_gopath
 augroup hr_goconfig
     autocmd!
