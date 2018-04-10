@@ -21,6 +21,7 @@ xnoremap ; <Nop>
 "nnoremap m <Nop>
 "xnoremap m <Nop>
 inoremap jk <Esc>
+inoremap <Esc> <Nop>
 " 1}}}
 "------------------------------------------------------------------
 " [keymap for toggle somethings] {{{1
