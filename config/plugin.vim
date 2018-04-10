@@ -526,8 +526,8 @@ inoremap <silent><expr> <C-1> deoplete#mapping#manual_complete()
 "------------------------------------------------------------------
 " [deoplete-jedi/vim-jedi for python] {{{1
 "------------------------------------------------------------------
-let g:python_host_prog = '/Users/daipeng/.virtualenvs/neovim-env/bin/python'
-let g:python3_host_prog = '/Users/daipeng/.virtualenvs/neovim-env/bin/python'
+"let g:python_host_prog = '/Users/daipeng/.virtualenvs/neovim-env/bin/python'
+"let g:python3_host_prog = '/Users/daipeng/.virtualenvs/neovim-env/bin/python'
 let g:jedi#completions_enabled = 0
 " 1}}}
 "------------------------------------------------------------------
