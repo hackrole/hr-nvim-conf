@@ -63,12 +63,12 @@ if dein#load_state(g:hr_dein_install_dir)
     call dein#add("Shougo/vimfiler.vim")
 
     """ youcompleteme
-    call dein#add("Valloric/YouCompleteMe", {"build": "./install.py --all"})
+    "call dein#add("Valloric/YouCompleteMe", {"build": "./install.py --all"})
     """ deoplete completion
-    "call dein#add("Shougo/deoplete.nvim", )
+    call dein#add("Shougo/deoplete.nvim", )
     " python
-    "call dein#add("zchee/deoplete-jedi")
-    "call dein#add("davidhalter/jedi-vim")
+    call dein#add("zchee/deoplete-jedi")
+    call dein#add("davidhalter/jedi-vim")
     " vimscript
     "call dein#add("Shougo/neco-vim")
     " java
@@ -76,7 +76,7 @@ if dein#load_state(g:hr_dein_install_dir)
     " haskell ghc
     "call dein#add("eagletmt/neco-ghc")
     " golang
-    "call dein#add("zchee/deoplete-go", {"build": 'make'})
+    call dein#add("zchee/deoplete-go", {"build": 'make'})
     " elixir
     "call dein#add("awetzel/elixir.nvim", {"build": './install.sh'})
     " javascript
@@ -111,7 +111,7 @@ if dein#load_state(g:hr_dein_install_dir)
     call dein#add("c-brenn/phoenix.vim")
     call dein#add("tpope/vim-projectionist")
     call dein#add("ludovicchabant/vim-gutentags")
-    call dein#add("Rykka/riv.vim")
+    "call dein#add("Rykka/riv.vim")
     call dein#add("mattn/emmet-vim")
     call dein#add("godlygeek/tabular")
     "call dein#add("plasticboy/vim-markdown")
@@ -142,6 +142,7 @@ call hr_misc#load_config("hr_command.vim")
 call hr_misc#load_config("plugin.vim")
 
 " add python3 features
+" TODO use autoload or env
 "let g:python2_host_prog = '/usr/local/bin/python'
 "let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/Users/hackrole/.asdf/installs/python/2.7.17/bin/python'
