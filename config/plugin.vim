@@ -66,9 +66,13 @@ let g:user_emmet_prev_key = '<C-y>p'
 " ==================================================================
 " TODO: doc reaad and <f2>
 " 映射切换按键
-map <silent> <F3> :NERDTreeToggle<CR>
-imap <F3> <ESC>:NERDTreeToggle<CR>
-nn <silent> <F2> :exec("NERDTree ".expand('%:h'))<CR>
+nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
+nnoremap <silent> <leader>nc :NERDTreeCWD<CR>
+inoremap <silent> <C-2>nt <Esc>:NERDTreeToggle<cr>
+inoremap <silent> <C-2>nc <Esc>:NERDTreeCWD<CR>
+nnoremap <silent> <F3> :NERDTreeToggle<CR>
+inoremap <F3> <ESC>:NERDTreeToggle<CR>
+nnoremap <silent> <F2> :exec("NERDTree ".expand('%:h'))<CR>
 imap <silent> <F2> :exec("NERDTree ".expand('%:h'))<CR>
 " nerdtree ignore
 let NERDTreeIgnore=['\.o$']
