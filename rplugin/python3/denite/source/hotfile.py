@@ -27,6 +27,9 @@ def gather_hotfiles():
         path = (BASE_DIR / file_path).resolve()
         name = path.name
         results[name] = str(path)
+    # append new files
+    results['i3-config'] = "~/.i3/config"
+    results['tmux.conf'] = "~/.tmux.conf"
 
     return results
 
