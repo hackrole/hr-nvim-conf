@@ -60,7 +60,6 @@ if dein#load_state(g:hr_dein_install_dir)
     call dein#add("flazz/vim-colorschemes")
     call dein#add("dhruvasagar/vim-dotoo")
     call dein#add("jceb/vim-orgmode")
-    call dein#add("Shougo/vimfiler.vim")
 
     """ youcompleteme
     "call dein#add("Valloric/YouCompleteMe", {"build": "./install.py --all"})

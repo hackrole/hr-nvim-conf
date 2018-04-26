@@ -78,7 +78,8 @@ nnoremap <leader>sl <M-l>Mzt
 "------------------------------------------------------------------
 " [nvim terminal keymap] {{{1
 "------------------------------------------------------------------
-noremap <leader>Ts :split<CR>:terminal tmux<CR>
+noremap <leader>Ts :split<CR>:terminal tmux new<CR>
+noremap <leader>Tt :tabnew<CR>:terminal tmux new<CR>
 if exists(':tnoremap')
     tnoremap <Esc> <C-\><C-n>
     tnoremap jk <C-\><C-n>
@@ -97,6 +98,10 @@ endif
 "nnoremap <C-p> "+p
 "inoremap <C-p> <Esc>"+pa
 "cnoremap <C-p> <C-R>+
+vnoremap <C-t>y "+y
+nnoremap <C-t>t "+p
+inoremap <C-t>t <Esc>"+pa
+cnoremap <C-t>t <C-r>+
 " 1}}}
 " [快捷按鍵] {{{1
 " ===============

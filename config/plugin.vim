@@ -71,9 +71,9 @@ nnoremap <silent> <leader>nc :NERDTreeCWD<CR>
 inoremap <silent> <C-2>nt <Esc>:NERDTreeToggle<cr>
 inoremap <silent> <C-2>nc <Esc>:NERDTreeCWD<CR>
 nnoremap <silent> <F3> :NERDTreeToggle<CR>
-inoremap <F3> <ESC>:NERDTreeToggle<CR>
+inoremap <silent> <F3> <Esc>:NERDTreeToggle<CR>
 nnoremap <silent> <F2> :exec("NERDTree ".expand('%:h'))<CR>
-imap <silent> <F2> :exec("NERDTree ".expand('%:h'))<CR>
+inoremap <silent> <F2> <Esc>:exec("NERDTree ".expand('%:h'))<CR>
 " nerdtree ignore
 let NERDTreeIgnore=['\.o$']
 let NERDTreeIgnore+=['\.pyc$']
@@ -326,7 +326,7 @@ let g:syntastic_check_on_wq = 1
 " use all checker at once
 let g:syntastic_aggregate_errors = 1
 " auto open error window while errors
-let g:syntastic_auto_loc_list = 0
+let g:syntastic_auto_loc_list = 2
 let g:syntastic_always_populate_loc_list = 1
 " set sign symbol
 let g:syntastic_error_symbol = 'EE'
@@ -360,6 +360,14 @@ let g:syntastic_lua_checkers = ["luac", "luacheck"]
 let g:syntastic_lua_luacheck_args = "--no-unused-args"
 
 " TODO keymap
+nnoremap <leader>Psc :SyntasticCheck<CR>
+nnoremap <leader>Pst :SyntasticToggleMode<CR>
+nnoremap <leader>Pse :Errors<CR>
+nnoremap <leader>Psi :SyntasticInfo<CR>
+inoremap <C-2>Psc :SyntasticCheck<CR>
+inoremap <C-2>Pst :SyntasticToggleMode<CR>
+inoremap <C-2>Pse :Errors<CR>
+inoremap <C-2>Psi :SyntasticInfo<CR>
 
 
 "1}}}
@@ -476,8 +484,8 @@ let g:markdown_preview_no_default_mapping = 0
 " [Unite/Denite config] {{{1
 "------------------------------------------------------------------
 call unite#custom#profile('default', 'context', {
-            \    'start_inesrt': 1,
-            \    'complete': 1,
+            \    'start_inesrt': 0,
+            \    'complete': 0,
             \    'direction': 'botright',
             \    'winheight': 10,
             \})
@@ -487,12 +495,16 @@ nnoremap <leader>uB :<C-u>Unite bookmark<CR>
 nnoremap <leader>um :<C-u>Unite menu<CR>
 nnoremap <leader>uM :<C-u>Unite mapping<CR>
 nnoremap <leader>ur :<C-u>Unite file_mru<CR>
-if has('nvim')
-    nnoremap <leader>uf :Denite file_rec<CR>
-    nnoremap <leader>uh :Denite hotfile<CR>
-else
-    nnoremap <leader>uf :Unite file_rec<CR>
-endif
+" tmp not use denite.vim
+"if has('nvim')
+"    nnoremap <leader>uf :Denite file_rec<CR>
+"    nnoremap <leader>uh :Denite hotfile<CR>
+"else
+"    nnoremap <leader>uf :Unite file_rec<CR>
+"endif
+nnoremap <leader>uf :Unite file_rec<CR>
+nnoremap <leader>uh :Denite hotfile<CR>
+
 augroup unitegroup
     autocmd!
     autocmd FileType unite call s:unite_my_settings()

@@ -184,6 +184,8 @@ set nobackup
 "set backupskip += "*.log, *.pyc, *.tmp"
 " 设定临时文件目录
 set directory=~/.cache/nvim
+set autowrite
+set hidden
 " 1}}}
 
 " --------------------------------------------------
