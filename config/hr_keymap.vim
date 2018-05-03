@@ -31,10 +31,10 @@ nnoremap <leader>tn :set number!<CR>
 "nnoremap <leader>tw :set wrap!<CR>
 nnoremap <silent> <leader>th :nohlsearch<CR>
 " TODO use unite instead
-nnoremap <leader>tsh :set ft=html<CR>
-nnoremap <leader>tsc :set ft=css<CR>
-nnoremap <leader>tsp :set ft=php<CR>
-nnoremap <leader>tsj :set ft=javascript<CR>
+nnoremap <leader>Tsh :set ft=html<CR>
+nnoremap <leader>Tsc :set ft=css<CR>
+nnoremap <leader>Tsp :set ft=php<CR>
+nnoremap <leader>Tsj :set ft=javascript<CR>
 " 1}}}
 " --------------------------------------------------
 " [tab相关] {{{1
@@ -43,10 +43,17 @@ nnoremap <leader>tsj :set ft=javascript<CR>
 nnoremap <leader>tn :tabnew<CR>
 "inoremap <leader>tc <Esc>:tabclose<CR>
 "inoremap <leader>tn <Esc>:tabnew<CR>
-nnoremap <C-t>p :tabprevious<CR>
-nnoremap <C-t>n :tabnext<CR>
-inoremap <C-t>p <Esc>:tabprevious<CR>
-inoremap <C-t>n <Esc>:tabprevious<CR>
+
+" tmux and terminal will use <C-t> key.
+if has('gui')
+    nnoremap <C-t>p :tabprevious<CR>
+    nnoremap <C-t>n :tabnext<CR>
+    inoremap <C-t>p <Esc>:tabprevious<CR>
+    inoremap <C-t>n <Esc>:tabprevious<CR>
+else
+    noremap <leader>tj :tabnext<CR>
+    noremap <leader>tk :tabprevious<CR>
+endif
 
 nnoremap <leader>t1 :tabnext 1<CR>
 nnoremap <leader>t2 :tabnext 2<CR>
@@ -98,10 +105,17 @@ endif
 "nnoremap <C-p> "+p
 "inoremap <C-p> <Esc>"+pa
 "cnoremap <C-p> <C-R>+
-vnoremap <C-t>y "+y
-nnoremap <C-t>t "+p
-inoremap <C-t>t <Esc>"+pa
-cnoremap <C-t>t <C-r>+
+if has("gui")
+    vnoremap <C-t>y "+y
+    nnoremap <C-t>t "+p
+    inoremap <C-t>t <Esc>"+pa
+    cnoremap <C-t>t <C-r>+
+else
+    vnoremap <leader>ey "+y
+    noremap <leader>ep "+p
+    "inoremap <C-3>p  <Esc>"+p
+    "cnoremap <C-3>p <C-R>+
+endif
 " 1}}}
 " [快捷按鍵] {{{1
 " ===============

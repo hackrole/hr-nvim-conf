@@ -69,19 +69,19 @@ if dein#load_state(g:hr_dein_install_dir)
     call dein#add("zchee/deoplete-jedi")
     call dein#add("davidhalter/jedi-vim")
     " vimscript
-    "call dein#add("Shougo/neco-vim")
+    call dein#add("Shougo/neco-vim")
     " java
-    "call dein#add("artur-shaik/vim-javacomplete2")
+    call dein#add("artur-shaik/vim-javacomplete2")
     " haskell ghc
-    "call dein#add("eagletmt/neco-ghc")
+    call dein#add("eagletmt/neco-ghc")
     " golang
     call dein#add("zchee/deoplete-go", {"build": 'make'})
     " elixir
-    "call dein#add("awetzel/elixir.nvim", {"build": './install.sh'})
+    call dein#add("awetzel/elixir.nvim", {"build": './install.sh'})
     " javascript
-    "call dein#add("carlitux/deoplete-ternjs", {"build": "npm install -g tern"})
+    call dein#add("carlitux/deoplete-ternjs", {"build": "npm install -g tern"})
     " typescript
-    "call dein#add("mhartington/nvim-typescript")
+    call dein#add("mhartington/nvim-typescript")
 
     " vim unittest
     call dein#add("h1mesuke/vim-unittest")
@@ -124,6 +124,7 @@ if dein#load_state(g:hr_dein_install_dir)
     "call dein#add("Blackrush/vim-gocode")
     call dein#add("fatih/vim-go")
     call dein#add("jodosha/vim-godebug")
+    call dein#add("posva/vim-vue")
 
     " dein config finish
     call dein#end()
