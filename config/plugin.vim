@@ -49,7 +49,8 @@ let g:user_emmet_install_global = 1
 
 " key bind
 let g:user_emmet_leader_key  = '<C-y>'
-let g:user_emmet_expandabbr_key = '<C-;>'
+"let g:user_emmet_expandabbr_key = '<C-;>'
+let g:user_emmet_expandabbr_key = '<C-3>'
 let g:user_emmet_next_key = '<C-y>n'
 let g:user_emmet_prev_key = '<C-y>p'
 
@@ -484,7 +485,7 @@ let g:markdown_preview_no_default_mapping = 0
 " [Unite/Denite config] {{{1
 "------------------------------------------------------------------
 call unite#custom#profile('default', 'context', {
-            \    'start_inesrt': 0,
+            \    'start_insert': 1,
             \    'complete': 0,
             \    'direction': 'botright',
             \    'winheight': 10,
@@ -502,7 +503,7 @@ nnoremap <leader>ur :<C-u>Unite file_mru<CR>
 "else
 "    nnoremap <leader>uf :Unite file_rec<CR>
 "endif
-nnoremap <leader>uf :Unite file_rec<CR>
+nnoremap <leader>uf :Unite  file_mru file_rec file/new<CR>
 nnoremap <leader>uh :Denite hotfile<CR>
 
 augroup unitegroup

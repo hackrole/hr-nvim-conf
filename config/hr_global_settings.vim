@@ -69,7 +69,7 @@ endif
 "------------------------------------------------------------------
 set cmdheight=1
 " use full for cmdline complete
-set wildmode=full
+set wildmode=list:longest
 set wildmenu
 " ignore complete
 set wildignore+=.pyc,.swp
