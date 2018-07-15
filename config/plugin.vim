@@ -358,6 +358,8 @@ let g:syntastic_python_checkers = ['flake8']
 " elixir checker
 let g:syntastic_enable_elixir_checker = 1
 let g:syntastic_elixir_checkers = ['elixir']
+" golang checker
+let g:syntastic_go_checkers = ['go', 'govet']
 
 " not working now. set lua checker
 let g:syntastic_lua_checkers = ["luac", "luacheck"]
