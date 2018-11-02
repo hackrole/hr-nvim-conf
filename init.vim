@@ -49,8 +49,11 @@ if dein#load_state(g:hr_dein_install_dir)
     call dein#add("ivalkeen/nerdtree-execute")
     call dein#add("mortonfox/nerdtree-iterm")
     call dein#add("scrooloose/nerdcommenter")
-    call dein#add("tpope/vim-vinegar")
-    call dein#add("majutsushi/tagbar")
+    call dein#add("majutsushi/tagbar", {
+                \ 'build': {
+                \   'linux': 'https_proxy=127.0.0.1:8118 go get -u github.com/jstemmer/gotags',
+                \   }
+                \})
     call dein#add("tpope/vim-surround")
     call dein#add("easymotion/vim-easymotion")
     call dein#add("junegunn/vim-easy-align")
@@ -94,6 +97,7 @@ if dein#load_state(g:hr_dein_install_dir)
     call dein#add("vim-scripts/genutils")
     call dein#add("vim-scripts/grep.vim")
     call dein#add("tpope/vim-fugitive")
+    call dein#add("shumphrey/fugitive-gitlab.vim")
     call dein#add("mileszs/ack.vim")
     call dein#add("vim-scripts/TaskList.vim")
     call dein#add("bolasblack/gtrans.vim")
@@ -123,8 +127,13 @@ if dein#load_state(g:hr_dein_install_dir)
     "call dein#add("dgryski/vim-godef")
     "call dein#add("Blackrush/vim-gocode")
     call dein#add("fatih/vim-go")
-    call dein#add("jodosha/vim-godebug")
+    "call dein#add("jodosha/vim-godebug")
+    call dein#add("sebdah/vim-delve")
     call dein#add("posva/vim-vue")
+    " nginx
+    call dein#add("chr4/nginx.vim")
+    " dockerfile
+    call dein#add("ekalinin/Dockerfile.vim")
 
     " dein config finish
     call dein#end()

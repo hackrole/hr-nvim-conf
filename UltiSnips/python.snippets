@@ -46,7 +46,7 @@ endsnippet
 
 # ft.pf
 snippet ft.pt "from __future__ import print_function" !b
-from __future__ import print_funciton
+from __future__ import print_function
 $0
 endsnippet
 
@@ -278,4 +278,13 @@ endsnippet
 
 snippet ht "help_text=" !
 help_text="${1}"
+endsnippet
+
+# apistar snips
+snippet ap.route "apistar Route" !
+Route('${1}', method='${2}', handler=${3}),$0
+endsnippet
+
+snippet sq "sql string" !
+${1} = \{$1\},$0
 endsnippet

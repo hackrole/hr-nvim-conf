@@ -1,0 +1,19 @@
+snippet k8.pod "k8s pod template" !b
+apiVersion: v1
+kind: Pod
+metadata:
+	name: ${1:name}
+	namespace: ${2:default}
+spec:
+	containers:
+		- name: ${3:name}
+		  image: ${4}
+endsnippet
+
+snippet k8.rss.cpu !b
+resources:
+	limits:
+		cpu: $1
+	requests:
+		cpu: $2
+endsnippet

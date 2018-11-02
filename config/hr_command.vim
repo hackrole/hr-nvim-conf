@@ -41,6 +41,21 @@ function! s:JavascriptIDE()
     setlocal wrap
 endfunction
 
+" saltstack
+autocmd BufNewFile,BufRead *.sls :call s:SaltStackIDE()
+
+function! s:SaltStackIDE()
+    setlocal autoindent
+    setlocal smartindent
+    setlocal listchars=tab:\|\ ,trail:-
+    setlocal tabstop=2
+    setlocal expandtab " 使用空格替代缩进
+    setlocal shiftwidth=2
+    setlocal softtabstop=2
+    setlocal wrap
+    setlocal filetype=yaml
+endfunction
+
 " typescript自动设置
 autocmd BufNewFile,BufRead *.ts :call s:TypescriptIDE()
 

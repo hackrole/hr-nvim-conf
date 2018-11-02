@@ -172,7 +172,7 @@ cnoremap s!! w !sudo -u www-data tee > /dev/null %
 " ======================
 " XXX try more beautiful way
 noremap <leader>ps Oimport pytest; pytest.set_trace()<Esc>
-noremap <leader>pS Oimport ipdb; ipdb.set_trace()<Esc>
+noremap <leader>pS Oimport pdb; pdb.set_trace()<Esc>
 noremap <leader>pd O@pytest.mark.debug<Esc>
 "1}} vim:fdm=marker:fdc=1
 

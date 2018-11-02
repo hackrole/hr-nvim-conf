@@ -51,6 +51,7 @@ let g:user_emmet_install_global = 1
 let g:user_emmet_leader_key  = '<C-y>'
 "let g:user_emmet_expandabbr_key = '<C-;>'
 let g:user_emmet_expandabbr_key = '<C-3>'
+imap <C-3> <plug>(emmet-expand-abbr)
 let g:user_emmet_next_key = '<C-y>n'
 let g:user_emmet_prev_key = '<C-y>p'
 
@@ -287,8 +288,10 @@ let g:pymode_run_key = "<leader>qr"
 " quick key to break code
 let g:pymode_breakpoint_bind = "<leader>qb"
 
+" use Syntastic for python-lint, close python-mode lint
+let g:pymode_lint = 0
 " set pylint checker
-let g:pymode_lint_checker = "pyflaskes,pep8,mccabe"
+"let g:pymode_lint_checker = "pyflaskes,pep8,mccabe"
 " disbale pymode-lint auto checker
 let g:pymode_lint_on_write = 0
 " disable usual errors check
@@ -301,11 +304,11 @@ let g:pymode_lint_hold = 1
 let g:pymode_lint_minheight = 12
 let g:pymode_lint_maxheight = 14
 " key for pylint
-nn <leader>ql :PymodeLint<CR>
-" key for auto pep8 fix
-nn <Leader>qa :PymodeLintAuto<CR>
-" key for Pylint toggle
-nn <Leader>qt :PymodeLintToggle<CR>
+"nn <leader>ql :PymodeLint<CR>
+"" key for auto pep8 fix
+"nn <Leader>qa :PymodeLintAuto<CR>
+"" key for Pylint toggle
+"nn <Leader>qt :PymodeLintToggle<CR>
 
 " rope complete keys
 let g:pymode_rope_complete_on_dot = 0
@@ -351,7 +354,7 @@ let g:syntastic_mode_map = {
 let g:syntastic_c_checkers = ['gcc', 'make', 'cppcheck']
 let g:syntastic_javascript_checkers = ['jshint', "eslint"]
 "let g:syntastic_python_checkers = ['python', 'pylint', 'pep8', 'flake8']
-let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_checkers = ['flake8']
 " elixir checker
 let g:syntastic_enable_elixir_checker = 1
 let g:syntastic_elixir_checkers = ['elixir']
@@ -495,7 +498,7 @@ nnoremap <leader>ub :<C-u>Unite buffer<CR>
 nnoremap <leader>uB :<C-u>Unite bookmark<CR>
 nnoremap <leader>um :<C-u>Unite menu<CR>
 nnoremap <leader>uM :<C-u>Unite mapping<CR>
-nnoremap <leader>ur :<C-u>Unite file_mru<CR>
+nnoremap <leader>uF :<C-u>Unite file_mru<CR>
 " tmp not use denite.vim
 "if has('nvim')
 "    nnoremap <leader>uf :Denite file_rec<CR>
@@ -503,8 +506,11 @@ nnoremap <leader>ur :<C-u>Unite file_mru<CR>
 "else
 "    nnoremap <leader>uf :Unite file_rec<CR>
 "endif
-nnoremap <leader>uf :Unite  file_mru file_rec file/new<CR>
+nnoremap <leader>uf :Unite file_rec file/new<CR>
 nnoremap <leader>uh :Denite hotfile<CR>
+nnoremap <leader>uw :Unite window<CR>
+nnoremap <leader>ug :Denite grep<CR>
+nnoremap <leader>uj :Unite jump<CR>
 
 augroup unitegroup
     autocmd!
@@ -578,9 +584,10 @@ augroup hr_goconfig
     autocmd FileType go :call s:hr_goconfig_keymap()
 augroup END
 function! s:hr_goconfig_keymap()
-    nnoremap <localleader>bt :<C-u>GoToggleBreakpoint<CR>
-    nnoremap <localleader>dd :<C-u>GoDebug<CR>
-    nnoremap <localleader>dt :<C-u>GoDebugTest<CR>
+    " this not work on neovim, and not work ok, use Dlv-vim instead
+    "nnoremap <localleader>bt :<C-u>GoToggleBreakpoint<CR>
+    "nnoremap <localleader>dd :<C-u>GoDebug<CR>
+    "nnoremap <localleader>dt :<C-u>GoDebugTest<CR>
     nnoremap <localleader>gp :<C-u>GoPath<CR>
     " TODO use syntastic instead
     nnoremap <localleader>gl :<C-u>GoLint<CR>
@@ -593,4 +600,34 @@ function! s:hr_goconfig_keymap()
     nnoremap <localleader>gf :<C-u>GoInfo<CR>
 endfunction
 " 1}}}
+"------------------------------------------------------------------
+" [fugitive-gitlab config] {{{1
+"------------------------------------------------------------------
+" XXX this plugin sucks, remove it someday
+let g:fugitive_gitlab_domains = ['https://git.haomaiyi.com/']
+let g:gitlab_api_keys = {'gitlab.com': '', 'git.haomayi.com': '9BCk1Tn7oKrLqxedpetq'}
+" 1}}}
+"------------------------------------------------------------------
+" [fugitive config] {{{1
+"------------------------------------------------------------------
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gl :Glog<CR>
+nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gB :Gbrowse<CR>
+" 1}}}
+"------------------------------------------------------------------
+" [vim-go/go dlv] {{{1
+"------------------------------------------------------------------
+augroup go_debug
+    autocmd!
+    autocmd BufNewFile,BufRead *.go :call s:GoDebugKey()
+augroup END
+function! s:GoDebugKey()
+    nnoremap <buffer> <unique> <localleader>da :DlvToggleBreakpoint<CR>
+    nnoremap <buffer> <unique> <localleader>dt :DlvTest<CR>
+    nnoremap <buffer> <unique> <localleader>dd :DlvDebug<CR>
+    nnoremap <buffer> <unique> <localleader>dc :DlvClearAll<CR>
+endfunction
+" 1}}}
+
 
