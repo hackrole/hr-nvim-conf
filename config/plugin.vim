@@ -248,8 +248,8 @@ let g:UltiSnipsEditSplit = "horizontal"
 nnoremap <leader><F7> :UltiSnipsEdit<CR>
 let g:UltiSnipsExpandTrigger = "<C-e>"
 let g:UltiSnipsListSnippets = "<F7>"
-let g:UltiSnipsJumpForwardTrigger = "<C-k>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-j>"
+let g:UltiSnipsJumpForwardTrigger = "<C-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 
 augroup ultisnips_sub
     autocmd FileType jinja :UltiSnipsAddFiletypes jinja.html
