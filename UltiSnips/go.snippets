@@ -178,6 +178,13 @@ snippet http.listen "log.fatal http.listen and server" !b
 log.Fatal(http.ListenAndServe("localhost:8000", nil))
 endsnippet
 
+snippet gcy.imp "goconvey import" !b
+import (
+	"testing"
+	"github.com/smartstreets/goconvey/convey"
+)
+endsnippet
+
 # ginkgo test
 snippet gk.bg "gk test begin" !b
 var _ = Describe("$1", func(){
