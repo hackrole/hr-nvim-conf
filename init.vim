@@ -93,6 +93,7 @@ if dein#load_state(g:hr_dein_install_dir)
     call dein#add("junegunn/vader.vim")
 
     " misc
+    call dein#add("lambdalisue/suda.vim")
     call dein#add("jmcantrell/vim-virtualenv")
     call dein#add("vim-scripts/genutils")
     call dein#add("vim-scripts/grep.vim")
