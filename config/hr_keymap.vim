@@ -27,7 +27,7 @@ inoremap jk <Esc>
 "------------------------------------------------------------------
 nnoremap <leader>tr :set relativenumber!<CR>
 nnoremap <leader>tn :set number!<CR>
-nnoremap <leader>tw :set wrap!<CR>
+"nnoremap <leader>tw :set wrap!<CR>
 nnoremap <silent> <leader>th :nohlsearch<CR>
 " TODO use unite instead
 nnoremap <leader>tsh :set ft=html<CR>
@@ -38,10 +38,10 @@ nnoremap <leader>tsj :set ft=javascript<CR>
 " --------------------------------------------------
 " [tab相关] {{{1
 " --------------------------------------------------
-nnoremap <leader>tc :tabclose<CR>
+"nnoremap <leader>tc :tabclose<CR>
 nnoremap <leader>tn :tabnew<CR>
-inoremap <leader>tc <Esc>:tabclose<CR>
-inoremap <leader>tn <Esc>:tabnew<CR>
+"inoremap <leader>tc <Esc>:tabclose<CR>
+"inoremap <leader>tn <Esc>:tabnew<CR>
 
 nnoremap <C-t>p :tabprevious<CR>
 nnoremap <C-t>n :tabnext<CR>

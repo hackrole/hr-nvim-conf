@@ -132,6 +132,8 @@ call hr_misc#load_config("hr_command.vim")
 call hr_misc#load_config("plugin.vim")
 
 " add python3 features
-let g:python2_host_prog = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
+"let g:python2_host_prog = '/usr/local/bin/python'
+"let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/Users/hackrole/.asdf/installs/python/2.7.17/bin/python'
+let g:python3_host_prog = '/Users/hackrole/.asdf/installs/python/3.7.5/bin/python'
 "1}}}

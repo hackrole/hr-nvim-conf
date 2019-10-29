@@ -398,11 +398,11 @@ ino <expr> <C-g> neocomplcache#cancel_completion()
 " let g:AutoPairs = 
 " let b:AUtoPairs = 
 " key to toggle the auto_pair on/off
-let g:AutoPairsShortcutToggle = "<leader>pt"
+"let g:AutoPairsShortcutToggle = "<leader>pt"
 " key to jump the next closed pair
-let g:AutoPairsShortcutJump = "<leader>pj"
+"let g:AutoPairsShortcutJump = "<leader>pj"
 " key to fast wrap the auto-pair
-let g:AutoPairsShortcutFastWrap = "<leader>pp"
+"let g:AutoPairsShortcutFastWrap = "<leader>pp"
 "1}}}
 " --------------------------------------------------------------
 "  [ python-mode-klen配置 ]{{{1
