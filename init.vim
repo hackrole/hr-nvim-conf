@@ -1,149 +1,245 @@
 "------------------------------------------------------------------
-" [dein.vim config] {{{1
+" File: nvim_init.vim
+" Author: hackrole
+" Email: daipeng123456@gmail.com
+" Create At: 2017-10-26
+" Description: neovim配置文件
 "------------------------------------------------------------------
-set nocompatible
-be mswin
-filetype off
-if has('gui_macvim')
-    set macmeta
-endif
 
-" project dir
+" always the first line to load
+set nocompatible
+if has('gui_macvim')
+   set macmeta
+  endif
+
 let g:hr_base_dir = fnamemodify(resolve(expand('<sfile>:p')), ':h')
-let g:hr_dein_plugin_dir = g:hr_base_dir . "/dein/repos/github.com/Shougo/dein.vim"
-let g:hr_dein_install_dir = g:hr_base_dir . "/dein"
 let g:hr_config_dir = g:hr_base_dir . "/config/"
 
-" set runtimepath for autoload_funcs and dein plugin
-execute 'set runtimepath^=' . g:hr_base_dir
-execute "set runtimepath+=" . g:hr_dein_plugin_dir
-
-" path to plugins root path
-let g:hk_dein_plugin_path = expand("~/.config/nvim/dein")
-" add dein.vim to vimruntimepath
-
-if dein#load_state(g:hr_dein_install_dir)
-    call dein#begin(g:hr_dein_install_dir)
-    call dein#add('Shougo/dein.vim')
-    "call dein#add('Shougo/vimproc.vim', {
-    "            \ 'build': {
-    "            \   'windows': 'tools\\update-dll-mingw',
-    "            \   'cygwin': 'make -f make_cygwin.mak',
-    "            \   'mac': 'make -f make_mac.mak',
-    "            \   'linux': 'make',
-    "            \   'unix': 'gmake',
-    "            \   },
-    "            \})
-
-    call dein#add('Shougo/unite.vim')
-    call dein#add("basyura/unite-firefox-bookmarks")
-    call dein#add("liquidz/unite-bookmark-file")
-    call dein#add("Shougo/neomru.vim")
-    call dein#add("Shougo/denite.nvim")
-    call dein#add("Shougo/unite-session")
-    "call dein#add("hecal3/vim-leader-guide")
-
-    " main tools
-    call dein#add("scrooloose/nerdtree")
-    call dein#add("tpope/vim-vinegar")
-    call dein#add("ivalkeen/nerdtree-execute")
-    call dein#add("mortonfox/nerdtree-iterm")
-    call dein#add("scrooloose/nerdcommenter")
-    call dein#add("majutsushi/tagbar", {
-                \ 'build': {
-                \   'linux': 'https_proxy=127.0.0.1:8118 go get -u github.com/jstemmer/gotags',
-                \   }
-                \})
-    call dein#add("tpope/vim-surround")
-    call dein#add("easymotion/vim-easymotion")
-    call dein#add("junegunn/vim-easy-align")
-    call dein#add("tommcdo/vim-exchange")
-    call dein#add("tpope/vim-scriptease")
-    call dein#add("foursking/vim-doc-cn")
-    call dein#add("flazz/vim-colorschemes")
-    call dein#add("dhruvasagar/vim-dotoo")
-    call dein#add("jceb/vim-orgmode")
-
-    """ youcompleteme
-    "call dein#add("Valloric/YouCompleteMe", {"build": "./install.py --all"})
-    """ deoplete completion
-    call dein#add("Shougo/deoplete.nvim", )
-    " python
-    call dein#add("zchee/deoplete-jedi")
-    call dein#add("davidhalter/jedi-vim")
-    " vimscript
-    call dein#add("Shougo/neco-vim")
-    " java
-    call dein#add("artur-shaik/vim-javacomplete2")
-    " haskell ghc
-    call dein#add("eagletmt/neco-ghc")
-    " golang
-    call dein#add("zchee/deoplete-go", {"build": 'make'})
-    " elixir
-    call dein#add("awetzel/elixir.nvim", {"build": './install.sh'})
-    " javascript
-    call dein#add("carlitux/deoplete-ternjs", {"build": "npm install -g tern"})
-    " typescript
-    call dein#add("mhartington/nvim-typescript")
-
-    " vim unittest
-    call dein#add("h1mesuke/vim-unittest")
-    call dein#add("thinca/vim-themis")
-    call dein#add("kana/vim-vspec")
-    call dein#add("junegunn/vader.vim")
-
-    " misc
-    call dein#add("lambdalisue/suda.vim")
-    call dein#add("jmcantrell/vim-virtualenv")
-    call dein#add("vim-scripts/genutils")
-    call dein#add("vim-scripts/grep.vim")
-    call dein#add("tpope/vim-fugitive")
-    call dein#add("shumphrey/fugitive-gitlab.vim")
-    call dein#add("mileszs/ack.vim")
-    call dein#add("vim-scripts/TaskList.vim")
-    call dein#add("bolasblack/gtrans.vim")
-    call dein#add("vim-scripts/TagmaTasks")
-    call dein#add("bling/vim-airline")
-    call dein#add("equalsraf/neovim-gui-shim")
-    call dein#add("jonhiggs/MacDict.vim")
-    " nyaovim UI plugins
-    call dein#add("rhysd/nyaovim-markdown-preview")
-    call dein#add("rhysd/nyaovim-mini-browser")
-
-    " lang
-    "call dein#add("neomake/neomake")
-    call dein#add("c-brenn/phoenix.vim")
-    call dein#add("tpope/vim-projectionist")
-    call dein#add("ludovicchabant/vim-gutentags")
-    "call dein#add("Rykka/riv.vim")
-    call dein#add("mattn/emmet-vim")
-    call dein#add("godlygeek/tabular")
-    "call dein#add("plasticboy/vim-markdown")
-    call dein#add("gabrielelana/vim-markdown")
-    call dein#add("lepture/vim-jinja")
-    call dein#add("Sirver/ultisnips")
-    call dein#add("jiangmiao/auto-pairs")
-    call dein#add("vim-scripts/Python-mode-klen")
-    call dein#add("scrooloose/syntastic")
-    "call dein#add("dgryski/vim-godef")
-    "call dein#add("Blackrush/vim-gocode")
-    call dein#add("fatih/vim-go")
-    "call dein#add("jodosha/vim-godebug")
-    call dein#add("sebdah/vim-delve")
-    call dein#add("posva/vim-vue")
-    " nginx
-    call dein#add("chr4/nginx.vim")
-    " dockerfile
-    call dein#add("ekalinin/Dockerfile.vim")
-
-    " dein config finish
-    call dein#end()
-    call dein#save_state()
+" bootstrap vim-plug automatically
+let g:plug_install_dir = "~/.local/share/nvim/site/autoload/plug.vim"
+if empty(glob(g:plug_install_dir))
+    silent !curl -fLo ~/.local.share/nvim/site/autoload/plug.vim --create-dirs 
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    " autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-" auto install
-if dein#check_install()
-    call dein#install()
-endif
+
+
+call plug#begin("~/.config/nvim/plugged")
+
+"------------------------------------------------------------------
+" [general plugin] {{{1
+"------------------------------------------------------------------
+" nertree
+Plug 'scrooloose/nerdtree'
+Plug 'ivalkeen/nerdtree-execute'
+Plug 'mortonfox/nerdtree-iterm'
+Plug 'scrooloose/nerdcommenter'
+
+" airline, instead of powerline
+Plug 'bling/vim-airline'
+
+Plug 'mileszs/ack.vim'
+
+" vim colorschemes主题
+Plug 'flazz/vim-colorschemes'
+
+" vim style
+" Plugin 'kakkyz81/evervim'
+Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
+Plug 'junegunn/vim-easy-align'
+Plug 'tommcdo/vim-exchange'
+Plug 'tpope/vim-repeat'
+
+Plug 'vim-scripts/matchit.zip'
+
+Plug 'terryma/vim-multiple-cursors'
+Plug 'vim-scripts/sessionman.vim'
+
+Plug 'jiangmiao/auto-pairs'
+
+" vim oil and vinegar
+Plug 'tpope/vim-vinegar'
+
+" ctrlp
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
+Plug 'Yggdroot/LeaderF'
+" unite quick file/buffer explorer
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/denite.nvim'
+
+Plug 'osyo-manga/vim-over'
+
+Plug 'mbbill/undotree'
+
+Plug 'gcmt/wildfire.vim'
+" git conflict quick
+Plug 'rhysd/conflict-marker.vim'
+
+" XXX  nedd keep?
+" better default settings
+Plug 'tpope/vim-sensible'
+
+Plug 'hecal3/vim-leader-guide'
+" 1}}}
+
+"------------------------------------------------------------------
+" [writing] {{{1
+"------------------------------------------------------------------
+Plug 'reedes/vim-litecorrect'
+Plug 'reedes/vim-textobj-sentence'
+Plug 'reedes/vim-textobj-quote'
+Plug 'reedes/vim-wordy'
+" 1}}}
+
+"------------------------------------------------------------------
+" [general programming] {{{1
+"------------------------------------------------------------------
+" program syntax checker, support many language
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-fugitive'
+Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-commentary'
+Plug 'godlygeek/tabular'
+Plug 'luochen1990/rainbow'
+Plug 'majutsushi/tagbar'
+
+Plug 'neomake/neomake'
+
+" unittest for vim-script
+Plug 'h1mesuke/vim-unittest'
+" BDD-test for vim-script
+Plug 'kana/vim-vspec'
+Plug 'junegunn/vader.vim'
+" 1}}}
+
+"------------------------------------------------------------------
+" [auto-complete] {{{1
+"------------------------------------------------------------------
+"Plugin 'neocomplcache'
+"Plug 'Valloric/YouCompleteMe'
+
+" snippets
+Plug 'vimscript/UltiSnips'
+" 1}}}
+
+"------------------------------------------------------------------
+" [python] {{{1
+"------------------------------------------------------------------
+Plug 'python-mode/python-mode'
+Plug 'jmcantrell/vim-virtualenv'
+" 1}}}
+
+"------------------------------------------------------------------
+" [golang] {{{1
+"------------------------------------------------------------------
+" golang
+" code jump
+Plug 'dgryski/vim-godef'
+" gocode for auto-complete
+Plug 'Blackrush/vim-gocode'
+Plug 'fatih/vim-go'
+Plug 'jodosha/vim-godebug'
+" 1}}}
+
+"------------------------------------------------------------------
+" [javascript html and frontend] {{{1
+"------------------------------------------------------------------
+" typescript
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
+
+Plug 'mattn/emmet-vim'
+Plug 'skammer/vim-css-color'
+"Plugin 'css-color-preview'
+
+" javascript/nodjs
+Plug 'jelera/vim-javascript-syntax'
+" XXX install failed
+" Plug 'vimscript/JavaScript-Indent'
+Plug 'marijnh/tern_for_vim'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'gkz/vim-ls'
+Plug 'moll/vim-node'
+Plug 'digitaltoad/vim-jade'
+" 1}}}
+
+"------------------------------------------------------------------
+" [erlang elixir] {{{1
+"------------------------------------------------------------------
+" elixir plugin
+Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
+Plug 'c-brenn/phoenix.vim'
+" 1}}}
+
+
+"------------------------------------------------------------------
+" [other program] {{{1
+"------------------------------------------------------------------
+Plug 'ekalinin/Dockerfile.vim'
+
+Plug 'gabrielelana/vim-markdown'
+
+" plantuml
+Plug 'aklt/plantuml-syntax'
+
+" ruby on rails
+" XXX install failed
+" Plug 'vimscript/rails.vim'
+
+" erlang
+" XXX install failed
+" Plug 'vimscript/Vimerl'
+
+" rst plugin
+Plug 'Rykka/riv.vim'
+" markdown plugin
+Plug 'plasticboy/vim-markdown'
+Plug 'lepture/vim-jinja'
+" XXX install failed
+Plug 'hughbien/md-vim'
+" scala
+" Plug 'derekwyatt/vim-scala'
+"Plugin 'ensime/ensime-vim'
+" 1}}}
+"------------------------------------------------------------------
+" [color theme] {{{1
+"------------------------------------------------------------------
+Plug 'junegunn/seoul256.vim'
+" 1}}}
+
+"------------------------------------------------------------------
+" [misc] {{{1
+"------------------------------------------------------------------
+Plug 'bolasblack/gtrans.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-runner'
+Plug 'vim-scripts/TaskList.vim'
+Plug 'vim-scripts/TagmaTasks'
+" 1}}}
+
+
+Plug 'equalsraf/neovim-gui-shim'
+
+" Plug 'csliu/a.vim'
+" load error!
+Plug 'tpope/vim-scriptease'
+
+Plug 'tpope/vim-fugitive'
+"Plugin 'minibufexplorerpp'
+
+
+"Plug 'tpope/vim-projectionist'
+"Plug 'ludovicchabant/vim-gutentags'
+
+
+call plug#end()
+
 
 " source my config
 call hr_misc#load_config("hr_global_settings.vim")
@@ -157,4 +253,3 @@ call hr_misc#load_config("plugin.vim")
 "let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/Users/hackrole/.asdf/installs/python/2.7.17/bin/python'
 let g:python3_host_prog = '/Users/hackrole/.asdf/installs/python/3.7.5/bin/python'
-"1}}}
