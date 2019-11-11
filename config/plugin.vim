@@ -119,6 +119,10 @@ nmap <F4> :TagbarToggle<CR>
 imap <F4> <Esc>:TagbarToggle<CR>
 nmap <C-F4> :TagbarTogglePause<CR>
 imap <C-F4> :TagbarTogglePause<CR>
+" mac OS use brew install ctags
+"if has("macunix")
+"    let g:tagbar_ctags_bin = "/usr/local/Celler/ctags/5.8_1/bin/ctags"
+"endif
 " default sort tags by order in source file
 let g:tagbar_sort=0
 " show line number<1-absolute, 2-relative>
