@@ -6,6 +6,17 @@
 " Description: neovim配置文件
 "------------------------------------------------------------------
 
+" always the first line to load
+set nocompatible
+" bootstrap vim-plug automatically
+let g:plugin_install_dir = "~/.local/share/nvim/site/autoload/plug.vim"
+if empty(glob(g:plugin_install_dir))
+    silent !curl -fLo ~/.local.share/nvim/site/autoload/plug.vim --create-dirs 
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+
 call plug#begin("~/.config/nvim/plugged")
 
 Plug 'tpope/vim-sensible'
