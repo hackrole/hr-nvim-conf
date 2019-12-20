@@ -311,6 +311,7 @@ let g:pymode_lint_maxheight = 14
 "nn <Leader>qt :PymodeLintToggle<CR>
 
 " rope complete keys
+let g:pymode_rope = 0
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope_autocomplete_map = "<A-2>"
 let g:pymode_rope_lookup_project = 0

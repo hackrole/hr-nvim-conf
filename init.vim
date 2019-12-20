@@ -5,12 +5,13 @@
 " Create At: 2017-10-26
 " Description: neovim配置文件
 "------------------------------------------------------------------
+" vim: foldmethod=marker foldlevel=0 foldenable
 
 " always the first line to load
 set nocompatible
 if has('gui_macvim')
    set macmeta
-  endif
+endif
 
 let g:hr_base_dir = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 let g:hr_config_dir = g:hr_base_dir . "/config/"
@@ -27,8 +28,9 @@ endif
 call plug#begin("~/.config/nvim/plugged")
 
 "------------------------------------------------------------------
-" [general plugin] {{{1
+" [general plugin] 
 "------------------------------------------------------------------
+"{{{1
 " nertree
 Plug 'scrooloose/nerdtree'
 Plug 'ivalkeen/nerdtree-execute'
@@ -85,8 +87,9 @@ Plug 'hecal3/vim-leader-guide'
 " 1}}}
 
 "------------------------------------------------------------------
-" [writing] {{{1
+" [writing] 
 "------------------------------------------------------------------
+"{{{1
 Plug 'reedes/vim-litecorrect'
 Plug 'reedes/vim-textobj-sentence'
 Plug 'reedes/vim-textobj-quote'
@@ -94,8 +97,9 @@ Plug 'reedes/vim-wordy'
 " 1}}}
 
 "------------------------------------------------------------------
-" [general programming] {{{1
+" [general programming] 
 "------------------------------------------------------------------
+"{{{1
 " program syntax checker, support many language
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
@@ -117,8 +121,9 @@ Plug 'junegunn/vader.vim'
 " 1}}}
 
 "------------------------------------------------------------------
-" [auto-complete] {{{1
+" [auto-complete] 
 "------------------------------------------------------------------
+"{{{1
 "Plugin 'neocomplcache'
 "Plug 'Valloric/YouCompleteMe'
 
@@ -127,15 +132,17 @@ Plug 'vimscript/UltiSnips'
 " 1}}}
 
 "------------------------------------------------------------------
-" [python] {{{1
+" [python] 
 "------------------------------------------------------------------
+"{{{1
 Plug 'python-mode/python-mode'
 Plug 'jmcantrell/vim-virtualenv'
 " 1}}}
 
 "------------------------------------------------------------------
-" [golang] {{{1
+" [golang]
 "------------------------------------------------------------------
+"{{{1
 " golang
 " code jump
 Plug 'dgryski/vim-godef'
@@ -146,8 +153,9 @@ Plug 'jodosha/vim-godebug'
 " 1}}}
 
 "------------------------------------------------------------------
-" [javascript html and frontend] {{{1
+" [javascript html and frontend] 
 "------------------------------------------------------------------
+"{{{1
 " typescript
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
@@ -169,18 +177,19 @@ Plug 'digitaltoad/vim-jade'
 " 1}}}
 
 "------------------------------------------------------------------
-" [erlang elixir] {{{1
+" [erlang elixir] 
 "------------------------------------------------------------------
+"{{{1
 " elixir plugin
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 Plug 'c-brenn/phoenix.vim'
 " 1}}}
 
-
 "------------------------------------------------------------------
-" [other program] {{{1
+" [other program] 
 "------------------------------------------------------------------
+"{{{1
 Plug 'ekalinin/Dockerfile.vim'
 
 Plug 'gabrielelana/vim-markdown'
@@ -208,14 +217,16 @@ Plug 'hughbien/md-vim'
 "Plugin 'ensime/ensime-vim'
 " 1}}}
 "------------------------------------------------------------------
-" [color theme] {{{1
+" [color theme] 
 "------------------------------------------------------------------
+"{{{1
 Plug 'junegunn/seoul256.vim'
 " 1}}}
 
 "------------------------------------------------------------------
-" [misc] {{{1
+" [misc] 
 "------------------------------------------------------------------
+"{{{1
 Plug 'bolasblack/gtrans.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'

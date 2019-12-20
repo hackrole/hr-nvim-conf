@@ -63,6 +63,8 @@ if has('macunix')
 else
     set guifont=consoles:h21
 endif
+" not instead comment in newline
+set formatoptions-=cro
 " 
 "------------------------------------------------------------------
 " [cmdline config {{{1

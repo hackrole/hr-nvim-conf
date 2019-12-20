@@ -39,19 +39,19 @@ com! -nargs=0 ToTab call ToggleTab('tab')
 " TODO: 移位 ??
 " TODO: 第二窗口优化大小,位置
 fu! Winpossize(t)
-	if a:t == 'l'
-		winpos 961 24
-		set lines=53 columns=120
-		return
-	elseif a:t == 'r'
-		winpos 1 24
-		set lines=53 columns=119
-		return
-	elseif a:t == 'f'
-		winpos 0 24
-		set lines=55 columns=239
-		return
-	en
+    if a:t == 'l'
+        winpos 961 24
+        set lines=53 columns=120
+        return
+    elseif a:t == 'r'
+        winpos 1 24
+        set lines=53 columns=119
+        return
+    elseif a:t == 'f'
+        winpos 0 24
+        set lines=55 columns=239
+        return
+    en
 endf
 command! -nargs=1 Position call Winpossize(<f-args>)
 "1}}}
@@ -60,16 +60,16 @@ command! -nargs=1 Position call Winpossize(<f-args>)
 " --------------------------------------------------------
 " TODO: 移动到 command.vim
 function! Settabwidth(t)
-	if !empty(a:t)
-		let s = a:t
-		exec "set tabstop=".s
-		exec "set shiftwidth=".s
-		exec "set softtabstop=".s
-		exec "set et"
-	else
-		throw "require a num"
-		return
-	endif
+    if !empty(a:t)
+        let s = a:t
+        exec "set tabstop=".s
+        exec "set shiftwidth=".s
+        exec "set softtabstop=".s
+        exec "set et"
+    else
+        throw "require a num"
+        return
+    endif
 endfunction
 "1}}}
 command! -nargs=1 Settab  call Settabwidth(<f-args>)
