@@ -17,12 +17,12 @@ let g:hr_base_dir = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 let g:hr_config_dir = g:hr_base_dir . "/config/"
 
 " bootstrap vim-plug automatically
-"let g:plug_install_dir = "~/.local/share/nvim/site/autoload/plug.vim"
-"if empty(glob(g:plug_install_dir))
-"    silent !curl -fLo ~/.local.share/nvim/site/autoload/plug.vim --create-dirs 
-"        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"    " autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-"endif
+" let g:plug_install_dir = "~/.local/share/nvim/site/autoload/plug.vim"
+" if empty(glob(g:plug_install_dir))
+"     silent !curl -fLo ~/.local.share/nvim/site/autoload/plug.vim --create-dirs 
+"         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"     " autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" endif
 
 
 call plug#begin("~/.config/nvim/plugged")
