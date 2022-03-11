@@ -40,6 +40,11 @@ Plug 'scrooloose/nerdcommenter'
 " airline, instead of powerline
 Plug 'bling/vim-airline'
 
+" coc.nvim for LSP completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+
+" for search
 Plug 'mileszs/ack.vim'
 
 " vim colorschemes主题
